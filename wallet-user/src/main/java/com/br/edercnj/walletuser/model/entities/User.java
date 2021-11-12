@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
+
 @Document
 @Data
 public class User {
@@ -17,6 +18,7 @@ public class User {
     private String username;
     private String name;
     private Wallet wallet;
+
     public User(String username, String name) {
         this.username = username;
         this.name = name;
@@ -27,6 +29,10 @@ public class User {
         this.username = username;
         this.name = name;
         this.wallet = new Wallet(initialBalance);
+    }
+
+    public User() {
+        this.wallet = new Wallet();
     }
 
     public BigDecimal depositInWallet(BigDecimal valueToDeposit) {
@@ -40,7 +46,6 @@ public class User {
     public String getUsername() {
         return username;
     }
-
 
     public String getName() {
         return name;

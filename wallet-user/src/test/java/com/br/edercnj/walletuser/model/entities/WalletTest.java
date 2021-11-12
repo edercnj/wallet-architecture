@@ -1,7 +1,6 @@
-package com.br.edercnj.walletuser.entites;
+package com.br.edercnj.walletuser.model.entities;
 
 import com.br.edercnj.walletuser.exception.InsufficientFundsException;
-import com.br.edercnj.walletuser.model.entities.Wallet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,5 +34,11 @@ class WalletTest {
     @Test
     void when_initial_balance_is_5_getBalance_should_be_return_5() {
         Assertions.assertEquals(new BigDecimal(5), wallet.getBalance());
+    }
+
+    @Test
+    void when_create_new_wallet_with_default_constructor_should_be_return_default_value() {
+        Wallet wallet = new Wallet();
+        Assertions.assertEquals(new BigDecimal(0), wallet.getBalance());
     }
 }

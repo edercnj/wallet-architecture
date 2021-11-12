@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class FinancialMovementServiceImp implements FinancialMovementService {
 
-
     private final FinancialMovementRepository financialMovementRepository;
 
     public FinancialMovementServiceImp(FinancialMovementRepository financialMovementRepository) {this.financialMovementRepository = financialMovementRepository;}

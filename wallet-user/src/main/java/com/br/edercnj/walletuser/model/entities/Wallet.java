@@ -12,6 +12,10 @@ public class Wallet {
         this.balance = balance;
     }
 
+    public Wallet() {
+        this.balance = new BigDecimal(0);
+    }
+
     public BigDecimal deposit(BigDecimal valueToDeposit) {
         this.balance = balance.add(valueToDeposit);
         return balance;

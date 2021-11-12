@@ -1,4 +1,4 @@
-package com.br.edercnj.walletuser.entites;
+package com.br.edercnj.walletuser.model.entities;
 
 import com.br.edercnj.walletuser.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.model.entities.User;
@@ -53,6 +53,12 @@ class UserTest {
 
     @Test
     void when_getWallet_should_be_Return_NotNull() {
+        Assertions.assertNotNull(user.getWallet());
+    }
+
+    @Test
+    void when_create_new_wallet_with_default_constructor_should_be_return_default_value() {
+        User user = new User();
         Assertions.assertNotNull(user.getWallet());
     }
 

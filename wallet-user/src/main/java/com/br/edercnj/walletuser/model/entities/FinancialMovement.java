@@ -21,6 +21,9 @@ public class FinancialMovement {
     private User user;
     private BigDecimal amount;
 
+    public FinancialMovement() {
+    }
+
     public FinancialMovement(FinancialMovementType financialMovementType, User user, BigDecimal amount) {
         movementIdentifier = UUID.randomUUID();
         this.dateOfFinancialMovement = new Date();

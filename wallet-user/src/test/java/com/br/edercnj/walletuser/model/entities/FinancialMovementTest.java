@@ -1,4 +1,4 @@
-package com.br.edercnj.walletuser.entites;
+package com.br.edercnj.walletuser.model.entities;
 
 import com.br.edercnj.walletuser.model.entities.FinancialMovement;
 import com.br.edercnj.walletuser.model.entities.FinancialMovementType;
