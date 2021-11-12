@@ -5,7 +5,7 @@ server:
 spring:
   config:
     activate:
-      on-profile: 'prod'
+      on-profile: 'test'
   data:
     mongodb:
       uri: 'mongodb://localhost:27017/wallet-user'
