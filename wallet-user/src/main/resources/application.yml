@@ -1,0 +1,10 @@
+server:
+  port: ${port:8080}
+  servlet:
+    contextPath: "/wallet-user"
+
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: "urd"

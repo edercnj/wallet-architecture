@@ -1,4 +1,4 @@
-package com.br.edercnj.walletuser.application.ports;
+package com.br.edercnj.walletuser.application.ports.outbound;
 
 import com.br.edercnj.walletuser.application.domain.entites.User;
 

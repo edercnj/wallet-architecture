@@ -3,6 +3,7 @@ package com.br.edercnj.walletuser.application.domain.entites;
 import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
