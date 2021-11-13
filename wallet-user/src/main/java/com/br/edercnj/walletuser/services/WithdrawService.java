@@ -1,10 +1,11 @@
 package com.br.edercnj.walletuser.services;
 
+import com.br.edercnj.walletuser.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.exception.UserNotFoundException;
-import com.br.edercnj.walletuser.model.entities.Deposit;
 import com.br.edercnj.walletuser.model.entities.FinancialMovement;
+import com.br.edercnj.walletuser.model.entities.Withdraw;
 
 public interface WithdrawService {
 
-    FinancialMovement withdraw(Deposit deposit) throws UserNotFoundException;
+    FinancialMovement withdraw(Withdraw withdraw) throws UserNotFoundException, InsufficientFundsException;
 }

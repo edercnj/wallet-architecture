@@ -2,7 +2,6 @@ package com.br.edercnj.walletuser.services.impl;
 
 import com.br.edercnj.walletuser.model.entities.FinancialMovement;
 import com.br.edercnj.walletuser.model.entities.FinancialMovementType;
-import com.br.edercnj.walletuser.model.entities.User;
 import com.br.edercnj.walletuser.repository.FinancialMovementRepository;
 import com.br.edercnj.walletuser.services.FinancialMovementService;
 import org.junit.jupiter.api.BeforeEach;

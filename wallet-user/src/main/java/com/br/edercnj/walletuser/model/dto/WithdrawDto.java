@@ -4,12 +4,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 @Data
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class UserDto {
-    private String id;
+public class WithdrawDto {
+    @NotBlank
     private String username;
-    private String name;
-    private WalletDto wallet;
+    @NotNull
+    private Double amountToWithdraw;
 }

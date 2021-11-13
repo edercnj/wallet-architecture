@@ -1,14 +1,20 @@
 package com.br.edercnj.walletuser.services.impl;
 
+import com.br.edercnj.walletuser.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.exception.UserNotFoundException;
-import com.br.edercnj.walletuser.model.entities.Deposit;
 import com.br.edercnj.walletuser.model.entities.FinancialMovement;
+import com.br.edercnj.walletuser.model.entities.FinancialMovementType;
+import com.br.edercnj.walletuser.model.entities.User;
+import com.br.edercnj.walletuser.model.entities.Withdraw;
 import com.br.edercnj.walletuser.services.AmqpService;
 import com.br.edercnj.walletuser.services.FinancialMovementService;
 import com.br.edercnj.walletuser.services.UserService;
 import com.br.edercnj.walletuser.services.WithdrawService;
-import lombok.With;
+import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
+@Service
 public class WithdrawServiceImpl implements WithdrawService {
 
     private final UserService userService;
@@ -22,7 +28,11 @@ public class WithdrawServiceImpl implements WithdrawService {
     }
 
     @Override
-    public FinancialMovement withdraw(Deposit deposit) throws UserNotFoundException {
-        return null;
+    public FinancialMovement withdraw(Withdraw withdraw) throws UserNotFoundException, InsufficientFundsException {
+        User user = userService.findUserByUsername(withdraw.getUsername());
+        userService.withdrawInWallet(user, BigDecimal.valueOf(withdraw.getAmountToWithdraw()));
+        FinancialMovement financialMovement = financialMovementService.createFinancialMovement(new FinancialMovement(FinancialMovementType.WITHDRAW, user.getId(), BigDecimal.valueOf(withdraw.getAmountToWithdraw())));
+        amqpService.sendFinancialMovementToConsumers(financialMovement);
+        return financialMovement;
     }
 }

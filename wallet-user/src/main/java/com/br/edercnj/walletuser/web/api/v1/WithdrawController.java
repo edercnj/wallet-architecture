@@ -1,12 +1,13 @@
 package com.br.edercnj.walletuser.web.api.v1;
 
+import com.br.edercnj.walletuser.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.exception.UserNotFoundException;
-import com.br.edercnj.walletuser.model.dto.DepositDto;
 import com.br.edercnj.walletuser.model.dto.ErrorResponseDto;
 import com.br.edercnj.walletuser.model.dto.FinancialMovementDto;
-import com.br.edercnj.walletuser.model.entities.Deposit;
+import com.br.edercnj.walletuser.model.dto.WithdrawDto;
 import com.br.edercnj.walletuser.model.entities.FinancialMovement;
-import com.br.edercnj.walletuser.services.DepositService;
+import com.br.edercnj.walletuser.model.entities.Withdraw;
+import com.br.edercnj.walletuser.services.WithdrawService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -20,31 +21,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/api/v1")
-public class DepositController {
+public class WithdrawController {
 
-    private final DepositService depositService;
+    private final WithdrawService withdrawService;
 
-    private final ModelMapper modelMapper;
+    private final ModelMapper mapper;
 
-    public DepositController(DepositService depositService) {
-        this.depositService = depositService;
-        this.modelMapper = new ModelMapper();
+    public WithdrawController(WithdrawService withdrawService) {
+        this.withdrawService = withdrawService;
+        this.mapper = new ModelMapper();
     }
 
     @ApiOperation(value = "deposit a certain amount in the user's wallet")
     @ApiResponses(value =
             {
-                    @ApiResponse(code = 200, message = "Deposit made successfully", response = FinancialMovementDto.class),
-                    @ApiResponse(code = 400, message = "Invalid request parameters", response = ErrorResponseDto.class),
+                    @ApiResponse(code = 200, message = "Withdraw made successfully", response = FinancialMovementDto.class),
+                    @ApiResponse(code = 400, message = "Invalid request parameters or insufficient funds", response = ErrorResponseDto.class),
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
-    @PostMapping(value = "/user/wallet/deposit", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<FinancialMovementDto> deposit(@RequestBody @Validated DepositDto depositDto) throws UserNotFoundException {
-        FinancialMovement financialMovement = depositService.deposit(modelMapper.map(depositDto, Deposit.class));
-        FinancialMovementDto response = modelMapper.map(financialMovement, FinancialMovementDto.class);
+
+    @PostMapping(value = "/user/wallet/withdraw", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<FinancialMovementDto> deposit(@RequestBody @Validated WithdrawDto withdrawDto) throws UserNotFoundException, InsufficientFundsException {
+        FinancialMovement financialMovement = withdrawService.withdraw(mapper.map(withdrawDto, Withdraw.class));
+        FinancialMovementDto response = mapper.map(financialMovement, FinancialMovementDto.class);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }
