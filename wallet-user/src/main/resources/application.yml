@@ -1,5 +1,5 @@
 server:
-  port: ${WalletUserApplication:8080}
+  port: 8080
   netty:
     connection-timeout: 2m
 spring:
@@ -9,7 +9,5 @@ spring:
   data:
     mongodb:
       auto-index-creation: true
-      host: localhost
-      database: wallet-user
-      username: wallet-user
-      password: wallet-user
+      authentication-database: admin
+      uri: ${MONGO_DB_URI:mongodb://wallet-user:wallet-user@123@127.0.0.1/wallet-user?authSource=admin}

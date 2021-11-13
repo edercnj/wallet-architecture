@@ -1,0 +1,23 @@
+version: '2'
+
+networks:
+  localhost-network:
+  wallet-user:
+
+volumes:
+  database:
+
+services:
+  mongo-db-wallet-user:
+    image: mongo:bionic
+    container_name: wallet-user-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - database:/data/wallet-user-db
+    environment:
+      - MONGO_INITDB_DATABASE=wallet-user
+      - MONGO_INITDB_USER=wallet-user
+      - MONGO_INITDB_PASSWORD=wallet-user@123
+    networks:
+      - localhost-network
