@@ -3,6 +3,8 @@ server:
   netty:
     connection-timeout: 2m
 spring:
+  main:
+    banner-mode: off
   config:
     activate:
       on-profile: 'test'

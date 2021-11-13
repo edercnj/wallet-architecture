@@ -1,9 +1,13 @@
-version: '2'
+version: '3.3'
 
 networks:
   localhost-network:
   wallet:
+    driver: bridge
   wallet-user:
+    driver: bridge
+  default:
+    external: true
 
 volumes:
   database:
@@ -19,6 +23,39 @@ services:
     environment:
       - MONGO_INITDB_DATABASE=wallet-user
       - MONGO_INITDB_USER=wallet-user
-      - MONGO_INITDB_PASSWORD=wallet-user@123
+      - MONGO_INITDB_PASSWORD=wallet-user
     networks:
       - localhost-network
+      - wallet-user
+
+  rabbitmq-wallet-user:
+    image: rabbitmq:management-alpine
+    container_name: rabbitmq-wallet-user
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=admin@rabbitmq
+    networks:
+      - localhost-network
+      - wallet-user
+  
+  wallet-user-application:
+    image: openjdk:17-alpine3.14
+    container_name: wallet-user-application
+    volumes: 
+      - ./wallet-user/target:/usr/src/app
+    working_dir: /usr/src/app
+    command:
+      - "java"
+      - "-jar"
+      - "/usr/src/app/wallet-user.jar"
+    ports:
+      - "8056:8080"
+    depends_on:
+      - rabbitmq-wallet-user
+      - mongo-db-wallet-user
+    networks:
+      - localhost-network
+      - wallet-user

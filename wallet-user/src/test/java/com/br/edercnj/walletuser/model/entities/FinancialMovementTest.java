@@ -14,7 +14,7 @@ class FinancialMovementTest {
     @BeforeEach
     void setUp() {
         User user = new User("fulano@gmail.com", "Fulano de Tal", new BigDecimal(10000));
-        financialMovement = new FinancialMovement(FinancialMovementType.DEPOSIT, user, new BigDecimal(500));
+        financialMovement = new FinancialMovement(FinancialMovementType.DEPOSIT, "123456", new BigDecimal(500));
     }
 
     @Test
@@ -35,7 +35,7 @@ class FinancialMovementTest {
 
     @Test
     void getUser_should_be_return_user_whit_username_falano() {
-        Assertions.assertEquals("fulano@gmail.com", financialMovement.getUser().getUsername());
+        Assertions.assertEquals("123456", financialMovement.getUserId());
     }
     @Test
     void getAmount() {

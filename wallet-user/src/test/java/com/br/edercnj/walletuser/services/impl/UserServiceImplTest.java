@@ -22,11 +22,11 @@ import static org.mockito.Mockito.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
-class UserServiceImpTest {
+class UserServiceImplTest {
     @MockBean
     private UserRepository userRepository;
     @Autowired
-    private UserServiceImp userService;
+    private UserServiceImpl userService;
 
     private User user;
 

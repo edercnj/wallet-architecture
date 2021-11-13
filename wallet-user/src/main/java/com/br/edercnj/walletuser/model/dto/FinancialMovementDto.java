@@ -21,7 +21,7 @@ public class FinancialMovementDto {
     @NotNull
     private FinancialMovementType financialMovementType;
     @NotNull
-    private UserDto user;
+    private String userId;
     @NotNull
     private BigDecimal amount;
 }

@@ -1,8 +1,12 @@
 server:
-  port: 8080
+  port: ${WalletUserApplication:8080}
   netty:
     connection-timeout: 2m
 spring:
+  main:
+    banner-mode: off
+  application:
+      name: waller-user
   config:
     activate:
       on-profile: 'prod'
@@ -10,4 +14,4 @@ spring:
     mongodb:
       auto-index-creation: true
       authentication-database: admin
-      uri: ${MONGO_DB_URI:mongodb://wallet-user:wallet-user@123@127.0.0.1/wallet-user?authSource=admin}
+      uri: "mongodb://wallet-user:wallet-user@127.0.0.1/wallet-user?authSource=admin"

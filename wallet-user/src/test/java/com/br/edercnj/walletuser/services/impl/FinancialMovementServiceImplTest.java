@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
-class FinancialMovementServiceImpTest {
+class FinancialMovementServiceImplTest {
 
     @MockBean
     private FinancialMovementRepository financialMovementRepository;
@@ -35,7 +35,7 @@ class FinancialMovementServiceImpTest {
 
     @BeforeEach
     void setUp() {
-        financialMovementMock = new FinancialMovement(FinancialMovementType.DEPOSIT, new User("edercnj", "Eder", new BigDecimal(500)), new BigDecimal(500));
+        financialMovementMock = new FinancialMovement(FinancialMovementType.DEPOSIT, "123456", new BigDecimal(500));
         when(financialMovementRepository.save(any(FinancialMovement.class))).thenReturn(financialMovementMock);
         when(financialMovementRepository.findAll()).thenReturn(new ArrayList<>());
     }

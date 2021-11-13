@@ -1,0 +1,9 @@
+FROM openjdk:11-jre
+MAINTAINER Eder Celeste Nunes
+RUN apk update && apk add bash
+RUN mkdir -p /opt/app
+ENV PROJECT_HOME /opt/app
+COPY target/*.jar $PROJECT_HOME/app.jar
+WORKDIR $PROJECT_HOME
+EXPOSE 8080
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar -Dspring.profiles.active=prod", "./app.jar"]

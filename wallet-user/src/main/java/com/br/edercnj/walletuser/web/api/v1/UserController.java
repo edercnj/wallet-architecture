@@ -1,7 +1,6 @@
 package com.br.edercnj.walletuser.web.api.v1;
 
 import com.br.edercnj.walletuser.exception.UserAlreadyRegisteredException;
-import com.br.edercnj.walletuser.mapper.UserMapper;
 import com.br.edercnj.walletuser.model.dto.ErrorResponseDto;
 import com.br.edercnj.walletuser.model.dto.UserDto;
 import com.br.edercnj.walletuser.model.entities.User;
@@ -9,6 +8,7 @@ import com.br.edercnj.walletuser.services.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
-
+    private final ModelMapper mapper;
     public UserController(UserService userService) {
         this.userService = userService;
+        this.mapper = new ModelMapper();
     }
 
     @ApiOperation(value = "Create user with your wallet")
@@ -37,7 +38,7 @@ public class UserController {
             })
     @PostMapping(value = "/user/create", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<UserDto> create(@RequestBody @Validated UserDto dto) throws UserAlreadyRegisteredException {
-        User user = userService.createUser(UserMapper.INSTANCE.dtoToUser(dto));
-        return ResponseEntity.status(HttpStatus.CREATED).body(UserMapper.INSTANCE.userToUserDto(user));
+        User user = userService.createUser(mapper.map(dto, User.class));
+        return ResponseEntity.status(HttpStatus.CREATED).body(mapper.map(user,UserDto.class));
     }
 }
