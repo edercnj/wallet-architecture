@@ -12,5 +12,7 @@ public interface UserService {
 
     User findUserByUsername(String username) throws UserNotFoundException;
 
+    User findUserById(String id) throws UserNotFoundException;
+
     BigDecimal withdrawInWallet(User user, BigDecimal valueToWithdraw) throws InsufficientFundsException;
 }

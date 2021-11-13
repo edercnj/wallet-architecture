@@ -5,7 +5,5 @@ import org.springframework.amqp.core.Message;
 
 public interface AmqpService {
 
-    void sendToConsumer(Message message);
-
-    void sendToConfigurationConsumer(FinancialMovement configurationRequest);
+    void sendFinancialMovementToConsumers(FinancialMovement configurationRequest);
 }

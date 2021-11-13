@@ -7,6 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface WalletMapper {
+    WalletMapper INSTANCE = Mappers.getMapper(WalletMapper.class);
 
     WalletDto walletToDto(Wallet user);
 

@@ -8,5 +8,8 @@ spring:
       on-profile: 'prod'
   data:
     mongodb:
-      uri: 'mongodb://localhost:27017/wallet-user'
       auto-index-creation: true
+      host: localhost
+      database: wallet-user
+      username: wallet-user
+      password: wallet-user

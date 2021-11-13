@@ -8,6 +8,8 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface FinancialMovementMapper {
 
+    FinancialMovementMapper INSTANCE = Mappers.getMapper(FinancialMovementMapper.class);
+
     FinancialMovementDto financialMovementToDto(FinancialMovement financialMovement);
 
     FinancialMovement dtoToFinancialMovement(FinancialMovementDto dto);
