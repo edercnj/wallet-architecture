@@ -14,4 +14,4 @@ spring:
     mongodb:
       auto-index-creation: true
       authentication-database: admin
-      uri: ${MONGODB_URI:mongodb://wallet-user:wallet-user@wallet-user-db/wallet-user?authSource=admin}
+      uri: ${MONGODB_URI:mongodb://wallet-user:wallet-user@127.0.0.1/wallet-user?authSource=admin}

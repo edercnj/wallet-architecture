@@ -10,5 +10,5 @@ spring:
       on-profile: 'test'
   data:
     mongodb:
-      uri: 'mongodb://localhost:27017/wallet-user'
+      uri: ${MONGODB_URI:mongodb://localhost:27017/wallet-user}
       auto-index-creation: true
