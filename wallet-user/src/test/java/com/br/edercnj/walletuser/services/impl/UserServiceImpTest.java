@@ -4,7 +4,6 @@ import com.br.edercnj.walletuser.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.exception.UserNotFoundException;
 import com.br.edercnj.walletuser.model.entities.User;
 import com.br.edercnj.walletuser.repository.UserRepository;
-import com.br.edercnj.walletuser.services.impl.UserServiceImp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

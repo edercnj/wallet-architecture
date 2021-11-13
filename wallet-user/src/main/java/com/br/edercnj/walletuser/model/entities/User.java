@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.math.BigDecimal;
 
 
-@Document(collection = "user")
+@Document
 @Data
 public class User {
     @Id
@@ -41,17 +41,5 @@ public class User {
 
     public BigDecimal withdrawInWallet(BigDecimal valueToWithdraw) throws InsufficientFundsException {
         return wallet.withdraw(valueToWithdraw);
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Wallet getWallet() {
-        return wallet;
     }
 }

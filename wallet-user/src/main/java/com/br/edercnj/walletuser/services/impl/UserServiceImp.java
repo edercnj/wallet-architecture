@@ -1,6 +1,7 @@
 package com.br.edercnj.walletuser.services.impl;
 
 import com.br.edercnj.walletuser.exception.InsufficientFundsException;
+import com.br.edercnj.walletuser.exception.UserAlreadyRegisteredException;
 import com.br.edercnj.walletuser.exception.UserNotFoundException;
 import com.br.edercnj.walletuser.model.entities.User;
 import com.br.edercnj.walletuser.repository.UserRepository;
@@ -44,5 +45,14 @@ public class UserServiceImp implements UserService {
         user.withdrawInWallet(valueToWithdraw);
         User savedEntity = userRepository.save(user);
         return savedEntity.getWallet().getBalance();
+    }
+
+    @Override
+    public User createUser(User user) throws UserAlreadyRegisteredException {
+        Optional<User> userSearched = userRepository.findByUsername(user.getUsername());
+        if (userSearched.isPresent()) {
+            throw new UserAlreadyRegisteredException();
+        }
+        return userRepository.save(user);
     }
 }

@@ -1,9 +1,11 @@
 package com.br.edercnj.walletuser.model.entities;
 
 import com.br.edercnj.walletuser.exception.InsufficientFundsException;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
+@Data
 public class Wallet {
 
     private BigDecimal balance;
@@ -33,7 +35,4 @@ public class Wallet {
         return balance.compareTo(valueToWithdraw) < 0;
     }
 
-    public BigDecimal getBalance() {
-        return balance;
-    }
 }

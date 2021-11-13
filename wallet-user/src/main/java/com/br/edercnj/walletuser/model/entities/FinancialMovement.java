@@ -31,14 +31,4 @@ public class FinancialMovement {
         this.user = user;
         this.amount = amount;
     }
-
-    public UUID getMovementIdentifier() {return movementIdentifier;}
-
-    public Date getDateOfFinancialMovement() {return dateOfFinancialMovement;}
-
-    public FinancialMovementType getFinancialMovementType() {return financialMovementType;}
-
-    public User getUser() {return user;}
-
-    public BigDecimal getAmount() {return amount;}
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
@@ -13,9 +14,14 @@ import java.util.UUID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class FinancialMovementDto {
+    @NotNull
     private UUID movementIdentifier;
+    @NotNull
     private Date dateOfFinancialMovement;
+    @NotNull
     private FinancialMovementType financialMovementType;
+    @NotNull
     private UserDto user;
+    @NotNull
     private BigDecimal amount;
 }
