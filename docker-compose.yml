@@ -11,14 +11,14 @@ volumes:
   database:
 
 services:
-  wallet-user-db:
+  wallet-db:
     image: mongo:bionic
-    container_name: wallet-user-db
-    hostname: wallet-user-db
+    container_name: wallet-db
+    hostname: wallet-db
     ports:
       - "27017:27017"
     volumes:
-      - database:/data/wallet-user-db
+      - database:/data/wallet-db
     networks:
       - localhost-network
       - wallet-user
@@ -51,7 +51,7 @@ services:
       - "8056:8080"
     depends_on:
       - rabbitmq-wallet
-      - wallet-user-db
+      - wallet-db
     networks:
       - localhost-network
       - wallet-user
