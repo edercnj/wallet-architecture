@@ -55,3 +55,14 @@ services:
     networks:
       - localhost-network
       - wallet-user
+      - wallet
+  
+  wallet-gateway:
+    image: nginx:stable-alpine 
+    container_name: wallet-gateway
+    hostname: wallet-gateway
+    ports:
+      - "8000:80"
+    networks:
+      - localhost-network
+      - wallet
