@@ -3,8 +3,6 @@ server:
   tomcat:
     connection-timeout: 2000
 spring:
-  main:
-    banner-mode: off
   application:
       name: waller-user
   config:
