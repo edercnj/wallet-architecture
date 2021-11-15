@@ -4,5 +4,5 @@ import com.br.edercnj.walletuser.model.entities.FinancialMovement;
 
 public interface AmqpService {
 
-    void sendFinancialMovementToConsumers(FinancialMovement configurationRequest);
+    void sendFinancialMovementToConsumers(FinancialMovement financialMovement);
 }

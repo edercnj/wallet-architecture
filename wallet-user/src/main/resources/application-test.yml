@@ -10,3 +10,17 @@ spring:
     mongodb:
       uri: 'mongodb://localhost:27017/wallet-user'
       auto-index-creation: true
+  rabbitmq:
+    username: rabbitmq
+    password: admin@rabbitmq
+    host: rabbitmq-wallet
+    port: 5672
+
+amqp:
+  financialMovement:
+    exchange:
+      name: ex.financialMovement
+    queues:
+      wallet-timeline:
+        name: rk.wallettimeline
+        deadLetter: dlq.wallettimeline
