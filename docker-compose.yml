@@ -47,7 +47,7 @@ services:
     working_dir: /opt
     environment:
       - RABBITMQ_HOST=rabbitmq-wallet
-    command: bash -c "sleep 10 && java -jar -Dspring.profiles.active=prod /opt/app/wallet-user.jar"
+    command: bash -c "sleep 5 && java -jar -Dspring.profiles.active=prod /opt/app/wallet-user.jar"
     ports:
       - "8080"
     depends_on:
@@ -67,7 +67,7 @@ services:
     working_dir: /opt
     environment:
       - RABBITMQ_HOST=rabbitmq-wallet
-    command: bash -c "sleep 10 && java -jar -Dspring.profiles.active=prod /opt/app/wallet-user.jar"
+    command: bash -c "sleep 5 && java -jar -Dspring.profiles.active=prod /opt/app/wallet-user.jar"
     ports:
       - "8080"
     depends_on:
