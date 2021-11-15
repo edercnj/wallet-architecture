@@ -27,7 +27,6 @@ public class FinancialMovementRabbitMQ implements AmqpConfiguration<FinancialMov
         try {
             rabbitTemplate.convertAndSend(financialMovementExchangeName, walletTimelineQueue, message, m -> {
                 m.getMessageProperties().getHeaders().put("custom-header", message.getMovementIdentifier().toString());
-                //m.getMessageProperties().setExpiration("10000");
                 return m;
             });
         } catch (Exception ex) {
