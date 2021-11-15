@@ -41,9 +41,11 @@ services:
       - localhost-network
       - wallet-rabbit
   
-  redis-wallert:
+  redis-wallet:
     image: redis:alpine
-    command: redis-server --requirepass Redis2019!
+    container_name: redis-wallet
+    hostname: redis-wallet
+    command: redis-server
     ports:
       - "6379:6379"
     networks:
@@ -107,6 +109,7 @@ services:
     depends_on:
       - rabbitmq-wallet
       - wallet-db
+      - redis-wallet
     networks:
       - wallet-db
       - wallet-rabbit
@@ -129,6 +132,7 @@ services:
     depends_on:
       - rabbitmq-wallet
       - wallet-db
+      - redis-wallet
     networks:
       - wallet-db
       - wallet-rabbit

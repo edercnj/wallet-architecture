@@ -4,11 +4,17 @@ import com.br.edercnj.wallettimeline.model.dto.ErrorResponseDto;
 import com.br.edercnj.wallettimeline.model.dto.FinancialMovementDto;
 import com.br.edercnj.wallettimeline.model.entities.FinancialMovement;
 import com.br.edercnj.wallettimeline.service.FinancialMovementService;
+import com.br.edercnj.wallettimeline.service.impl.FinancialMovementServiceImpl;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +58,7 @@ public class FinancialMovementController {
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
     @GetMapping(value = "/timeline/financial-movements/user/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<FinancialMovementDto>> getFinancialMovementsFromUser(@PathVariable(value="id") String userId) {
+    public ResponseEntity<List<FinancialMovementDto>> getFinancialMovementsFromUser(@PathVariable(value = "id") String userId) {
         List<FinancialMovement> financialMovement = financialMovementService.findByUserId(userId);
         List<FinancialMovementDto> financialMovements = mapper.map(financialMovement, new TypeToken<List<FinancialMovement>>() {}.getType());
         return ResponseEntity.status(HttpStatus.OK).body(financialMovements);
