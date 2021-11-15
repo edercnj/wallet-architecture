@@ -36,6 +36,7 @@ services:
       - RABBITMQ_DEFAULT_USER=rabbitmq
       - RABBITMQ_DEFAULT_PASS=admin@rabbitmq
     networks:
+      - localhost-network
       - wallet-rabbit
 
   wallet-user-app-1:
