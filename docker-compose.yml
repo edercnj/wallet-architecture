@@ -49,7 +49,27 @@ services:
       - RABBITMQ_HOST=rabbitmq-wallet
     command: bash -c "sleep 10 && java -jar -Dspring.profiles.active=prod /opt/app/wallet-user.jar"
     ports:
-      - "8080:8080"
+      - "8080"
+    depends_on:
+      - rabbitmq-wallet
+      - wallet-db
+    networks:
+      - wallet-db
+      - wallet-rabbit
+      - wallet
+
+  wallet-user-app-2:
+    image: openjdk:11-jre
+    container_name: wallet-user-app-2
+    hostname: wallet-user-app-2
+    volumes:
+      - ./wallet-user/target:/opt/app
+    working_dir: /opt
+    environment:
+      - RABBITMQ_HOST=rabbitmq-wallet
+    command: bash -c "sleep 10 && java -jar -Dspring.profiles.active=prod /opt/app/wallet-user.jar"
+    ports:
+      - "8080"
     depends_on:
       - rabbitmq-wallet
       - wallet-db
@@ -73,3 +93,4 @@ services:
       - wallet
     depends_on:
       - wallet-user-app-1
+      - wallet-user-app-2
