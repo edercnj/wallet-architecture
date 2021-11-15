@@ -8,14 +8,17 @@ Exemplo de arquitetura de uma wallet utilizado Spring boot, RabbitMQ, MongoDB, D
  - Docker através do docker-compose
  - Nginx
  - MongoDb
+ - git
+ - github
 
  ## O que é necessário para rodar esta demonstração:
 - Docker
 - Docker-compose
 - Java para o build através do maven
-- shell script
-- bat
- ## Consigerações sobre este modelo de arquitetura::
+- shell script (no caso de linx ou MacOS)
+- cmd (No caso de Windows)
+- acesso a internet para que as imagens sejam baixadas do docker hub
+ ## Considerações sobre este modelo de arquitetura::
 - Esta sendo utilizado o Nginx como load balancer e proxy reverso, desta formas as apis se portas das aplicações não serão expostas para fora.
 - O Nginx támbem expõe url difrentes que são direcionadas por ele para cada uma das aplicações.
 - Foram criados dois containers de cada uma das aplicações para a aplicação prática do load balancer do Nginx.
@@ -32,11 +35,12 @@ Exemplo de arquitetura de uma wallet utilizado Spring boot, RabbitMQ, MongoDB, D
 - Foram fornecidos endpoints através para as operações citadas acima.
 - Toda operação financeira executada (saque, depósito e transferência) geram uma evento de movimentação financeira que alimenta uma fila do RabbitMQ, atentendo desta forma a uma comunicação  assíncrona.
 - Todas as movimentação financeiras e a troca de saldo do usuário são armazenados no banco de dados mongodb.
+- Para tornar este exemplo funcional foi criado um endpoint de criação de usuário, permitindo assim que as operações sejam efetuadas.
 ### wallet-timeline:
 - A aplicação wallet-timeline consome a fila do RabbitMQ onde existe as movimentações financeiras do usário e popula sua base de dados.
-- O objetivo desta aplicação é não sobrecarregar a api da carteira de usuário com operações de consulta, por este motivo ela consome os eventos que a aplicação wallet-user coloca na fila do rabbitMQ.
+- O objetivo desta aplicação é não sobrecarregar a api da carteira de usuário com operações de consulta, por este motivo ela consome os eventos que a aplicação wallet-user coloca na fila do RabbitMQ.
 #### Operações da API da carteira do usuário:
-##### Criar usuário:
+###### Criar usuário:
 - **URL:**http://localhost:8000/api/v1/user/create
 - **MÉTODO:** POST
 - **BODY:** 
@@ -121,3 +125,4 @@ curl --location --request POST 'http://localhost:8000/api/v1/wallet/money-transf
     "moneyTransferAmount" : 10.98
 }'
 ```
+![Topologia]([URL da imagem](https://github.com/edercnj/wallet-architecture/blob/master/topologia-wallet.svg))

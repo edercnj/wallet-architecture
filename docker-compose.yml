@@ -9,6 +9,8 @@ networks:
     driver: bridge
   wallet-rabbit:
     driver: bridge
+  redis-wallet:
+    driver: bridge
 
 volumes:
   database:
@@ -38,6 +40,14 @@ services:
     networks:
       - localhost-network
       - wallet-rabbit
+  
+  redis-wallert:
+    image: redis:alpine
+    command: redis-server --requirepass Redis2019!
+    ports:
+      - "6379:6379"
+    networks:
+    - redis-wallet
 
   wallet-user-app-1:
     image: openjdk:11-jre
@@ -101,6 +111,7 @@ services:
       - wallet-db
       - wallet-rabbit
       - wallet
+      - redis-wallet
 
   wallet-timeline-2:
     image: openjdk:11-jre
@@ -122,6 +133,7 @@ services:
       - wallet-db
       - wallet-rabbit
       - wallet
+      - redis-wallet
 
   wallet-gateway:
     image: nginx

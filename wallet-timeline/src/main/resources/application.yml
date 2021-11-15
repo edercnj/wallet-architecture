@@ -17,6 +17,13 @@ spring:
     password: admin@rabbitmq
     host: rabbitmq-wallet
     port: 5672
+  redis:
+    host: redis-wallet
+    port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 120000
 
 amqp:
   financialMovement:
