@@ -1,6 +1,6 @@
 package com.br.edercnj.walletuser.model.entities;
 
 public enum FinancialMovementType {
-    DEPOSIT, WITHDRAW;
+    DEPOSIT, WITHDRAW, MONEY_TRANSFER;
 
 }

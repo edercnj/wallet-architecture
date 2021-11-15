@@ -7,4 +7,12 @@ public class Withdraw {
 
     private String username;
     private Double amountToWithdraw;
+
+    public Withdraw(String username, Double amountToWithdraw) {
+        this.username = username;
+        this.amountToWithdraw = amountToWithdraw;
+    }
+
+    public Withdraw() {
+    }
 }

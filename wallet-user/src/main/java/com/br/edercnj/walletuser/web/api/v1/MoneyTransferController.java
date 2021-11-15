@@ -1,0 +1,50 @@
+package com.br.edercnj.walletuser.web.api.v1;
+
+import com.br.edercnj.walletuser.exception.InsufficientFundsException;
+import com.br.edercnj.walletuser.exception.UserNotFoundException;
+import com.br.edercnj.walletuser.model.dto.ErrorResponseDto;
+import com.br.edercnj.walletuser.model.dto.FinancialMovementDto;
+import com.br.edercnj.walletuser.model.dto.MoneyTransferDto;
+import com.br.edercnj.walletuser.model.dto.UserDto;
+import com.br.edercnj.walletuser.model.entities.FinancialMovement;
+import com.br.edercnj.walletuser.model.entities.MoneyTransfer;
+import com.br.edercnj.walletuser.services.MoneyTransferService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/v1")
+public class MoneyTransferController {
+
+    MoneyTransferService moneyTransferService;
+    ModelMapper mapper;
+
+    public MoneyTransferController(MoneyTransferService moneyTransferService) {
+        this.moneyTransferService = moneyTransferService;
+        this.mapper = new ModelMapper();
+    }
+
+    @ApiOperation(value = "Transfer money between users.")
+    @ApiResponses(value =
+            {
+                    @ApiResponse(code = 201, message = "Transfer Successfully executed", response = UserDto.class),
+                    @ApiResponse(code = 400, message = "Invalid request parameters", response = ErrorResponseDto.class),
+                    @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
+            })
+    @PostMapping(value = "/user/wallet/money-transfer", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<FinancialMovementDto> create(@RequestBody @Validated MoneyTransferDto dto) throws UserNotFoundException, InsufficientFundsException {
+        FinancialMovement financialMovement = moneyTransferService.moneyTransfer(mapper.map(dto, MoneyTransfer.class));
+        FinancialMovementDto response = mapper.map(financialMovement, FinancialMovementDto.class);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+}
