@@ -2,10 +2,13 @@ package com.br.edercnj.wallettimeline.service;
 
 
 import com.br.edercnj.wallettimeline.model.entities.FinancialMovement;
-import reactor.core.publisher.Flux;
+
+import java.util.List;
 
 public interface FinancialMovementService {
     void createFinancialMovement(FinancialMovement financialMovement);
 
-    Flux<FinancialMovement> findByUserId(String userId);
+    List<FinancialMovement> findByUserId(String userId);
+
+    List<FinancialMovement> findAll();
 }

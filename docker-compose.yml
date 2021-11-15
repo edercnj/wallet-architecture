@@ -98,6 +98,26 @@ services:
       - wallet-rabbit
       - wallet
 
+  wallet-timeline-2:
+    image: openjdk:11-jre
+    container_name: wallet-timeline-2
+    hostname: wallet-timeline-2
+    volumes:
+      - ./wallet-timeline/target:/opt/app
+    working_dir: /opt
+    environment:
+      - RABBITMQ_HOST=rabbitmq-wallet
+    command: bash -c "sleep 7 && java -jar -Dspring.profiles.active=prod /opt/app/wallet-timeline.jar"
+    ports:
+      - "8080"
+    depends_on:
+      - rabbitmq-wallet
+      - wallet-db
+    networks:
+      - wallet-db
+      - wallet-rabbit
+      - wallet
+
   wallet-gateway:
     image: nginx
     container_name: wallet-gateway
@@ -113,3 +133,5 @@ services:
     depends_on:
       - wallet-user-app-1
       - wallet-user-app-2
+      - wallet-timeline-1
+      - wallet-timeline-2

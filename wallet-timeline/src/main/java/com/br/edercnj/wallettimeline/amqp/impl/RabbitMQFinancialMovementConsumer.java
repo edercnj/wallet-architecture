@@ -2,9 +2,7 @@ package com.br.edercnj.wallettimeline.amqp.impl;
 
 import com.br.edercnj.wallettimeline.amqp.AmqpConsumer;
 import com.br.edercnj.wallettimeline.model.entities.FinancialMovement;
-
 import com.br.edercnj.wallettimeline.service.FinancialMovementService;
-
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
