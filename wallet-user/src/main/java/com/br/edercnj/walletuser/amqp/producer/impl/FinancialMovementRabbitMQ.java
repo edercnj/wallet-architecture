@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FinancialMovementRabbitMQ implements AmqpConfiguration<FinancialMovement> {
+
     private final RabbitTemplate rabbitTemplate;
 
     @Value("${amqp.financialMovement.exchange.name}")

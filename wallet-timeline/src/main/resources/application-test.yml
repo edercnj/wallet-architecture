@@ -3,20 +3,16 @@ server:
 spring:
   main:
     banner-mode: off
-  application:
-      name: waller-user
   config:
     activate:
-      on-profile: 'prod'
+      on-profile: 'test'
   data:
     mongodb:
+      uri: 'mongodb://localhost:27017/wallet-timeline'
       auto-index-creation: true
-      uri: mongodb://wallet-db:27017/wallet-user?authSource=admin
-      authentication-database: admin
+      database: wallet-timeline
   rabbitmq:
-    username: rabbitmq
-    password: admin@rabbitmq
-    host: localhost
+    host: rabbitmq-wallet
     port: 5672
 
 amqp:
@@ -27,4 +23,3 @@ amqp:
       wallet-timeline:
         name: rk.wallettimeline
         deadLetter: dlq.wallettimeline
-
