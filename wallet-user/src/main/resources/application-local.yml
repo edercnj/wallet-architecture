@@ -1,7 +1,5 @@
 server:
-  port: ${WalletUserApplication:8080}
-  tomcat:
-    connection-timeout: 2000
+  port: 8080
 spring:
   main:
     banner-mode: off

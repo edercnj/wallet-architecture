@@ -1,7 +1,5 @@
 server:
-  port: ${WalletUserApplication:8080}
-  netty:
-    connection-timeout: 2m
+  port: 8080
 spring:
   main:
     banner-mode: off
