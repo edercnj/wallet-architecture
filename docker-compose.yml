@@ -43,6 +43,7 @@ services:
     image: openjdk:11-jre
     container_name: wallet-user-app-1
     hostname: wallet-user-app-1
+    restart: always
     volumes:
       - ./wallet-user/target:/opt/app
     working_dir: /opt
@@ -63,6 +64,7 @@ services:
     image: openjdk:11-jre
     container_name: wallet-user-app-2
     hostname: wallet-user-app-2
+    restart: always
     volumes:
       - ./wallet-user/target:/opt/app
     working_dir: /opt
@@ -83,6 +85,7 @@ services:
     image: openjdk:11-jre
     container_name: wallet-timeline-1
     hostname: wallet-timeline-1
+    restart: always
     volumes:
       - ./wallet-timeline/target:/opt/app
     working_dir: /opt
@@ -103,6 +106,7 @@ services:
     image: openjdk:11-jre
     container_name: wallet-timeline-2
     hostname: wallet-timeline-2
+    restart: always
     volumes:
       - ./wallet-timeline/target:/opt/app
     working_dir: /opt

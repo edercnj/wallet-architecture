@@ -1,4 +1,4 @@
-package com.br.edercnj.wallettimeline.controller;
+package com.br.edercnj.wallettimeline.web.api.v1;
 
 import com.br.edercnj.wallettimeline.model.dto.ErrorResponseDto;
 import com.br.edercnj.wallettimeline.model.dto.FinancialMovementDto;
