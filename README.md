@@ -1,15 +1,13 @@
 # wallet-architecture
 
-Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, MongoDB, Docker, Redis.
+Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, MongoDB, Docker, Redis e Nginx.
 
 ## Tecnologias utilizadas no projeto:
         - Java
         - SpringBoot
-        - Docker através do docker-compose
+        - Docker
         - Nginx
         - MongoDb
-        - git
-        - github
         - Redis
 
  ## O que é necessário para rodar esta demonstração:
