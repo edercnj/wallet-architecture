@@ -39,7 +39,7 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
  > * Nestes caso remova do arquivo docker-compose.yml os seguintes services:  wallet-timeline-2, bill-payment-2 e wallet-user-app-2.
  > * Também remova das configurações do nginx este servidores, remover no arquivos nginx.conf os seguintes servidores  wallet-user-app-2:8080,  wallet-timeline-2:8080 e bill-payment-2:8080.
  > 
-  -  ## Considerações sobre este modelo de arquitetura::
+  -  ## Considerações sobre este modelo de arquitetura:
 - Esta sendo utilizado o Nginx como load balancer e proxy reverso, desta formas as apis se portas das aplicações não serão expostas para fora.
 - O Nginx támbem expõe url difrentes que são direcionadas por ele para cada uma das aplicações, fornecendo URLs mais amigáveis.
 - Foram criados dois containers de cada uma das aplicações para a aplicação prática do load balancer do Nginx.
