@@ -30,10 +30,10 @@ Exemplo de arquitetura de uma wallet utilizado Spring boot, RabbitMQ, MongoDB, D
        - Windows: Clicar duas vezes no arquivo start.sh caso seja windows com o wsl2 instalado.
  
    - #### Como executar manualmente esta demonstração (Windows, Linux e MAC)
-           1.    acessar a pasta bill-payment e executar o comando mvnw clean compile package
-           2.    acessar a pasta wallet-timeline e executar o comando mvnw clean compile package
-           3.   acessar a pasta wallet-user e executar o comando mvnw clean compile package
-           4.    voltar para o diretório raiz do projeto (onde consta este README) E executar o comando docker-compose up -d --remove-orphans
+       1.    acessar a pasta bill-payment e executar o comando mvnw clean compile package
+       2.    acessar a pasta wallet-timeline e executar o comando mvnw clean compile package
+       3.    acessar a pasta wallet-user e executar o comando mvnw clean compile package
+       4.    voltar para o diretório raiz do projeto (onde consta este README) E executar o comando docker-compose up -d --remove-orphans
 
 ## Considerações importantes sobre performance
  > Esta demonstração utiliza ao todo 10 containers, o que para certas máquinas pode gerar lentidão ou o não correto funcionamento da aplicação.
