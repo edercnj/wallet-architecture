@@ -1,9 +1,9 @@
 package com.br.edercnj.billpayment.service;
 
 import com.br.edercnj.billpayment.model.entity.BillPayment;
-import com.br.edercnj.billpayment.model.entity.FinancialMovement;
+import com.br.edercnj.billpayment.model.entity.BillPaymentOrder;
 
 public interface BillPaymentService {
 
-     FinancialMovement pay(BillPayment billPayment);
+     BillPaymentOrder pay(BillPayment billPayment);
 }

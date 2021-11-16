@@ -37,8 +37,9 @@ amqp:
 feign:
   client:
     wallet-user:
-      connection-timeout:
-      read-timeout:
-      loggerlevel: basic
-      url:
+      find-user:
+        connection-timeout: 10000
+        read-timeout: 10000
+        loggerlevel: basic
+        base-url: "http://localhost:8000/api/v1/user"
 

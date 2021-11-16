@@ -14,14 +14,9 @@ import java.util.UUID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class FinancialMovementDto {
-    @NotNull
     private UUID movementIdentifier;
-    @NotNull
     private Date dateOfFinancialMovement;
-    @NotNull
     private FinancialMovementType financialMovementType;
-    @NotNull
     private String userId;
-    @NotNull
     private BigDecimal amount;
 }

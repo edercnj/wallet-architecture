@@ -7,9 +7,9 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class BillPaymentDto {
-
+public class UserDto {
+    private String id;
     private String username;
-    private String amount;
-    private String barCode;
+    private String name;
+    private WalletDto wallet;
 }

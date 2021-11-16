@@ -29,3 +29,11 @@ amqp:
         name: rk.wallettimeline
         deadLetter: dlq.wallettimeline
 
+feign:
+  client:
+    wallet-user:
+      find-user:
+        connection-timeout: 10000
+        read-timeout: 10000
+        loggerlevel: basic
+        base-url: "http://localhost:8000/api/v1/user"

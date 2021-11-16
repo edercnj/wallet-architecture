@@ -115,6 +115,48 @@ services:
       - wallet-rabbit
       - wallet
       - redis-wallet
+  
+  bill-payment-1:
+    image: openjdk:11-jre
+    container_name: bill-payment-1
+    hostname: bill-payment-1
+    restart: always
+    volumes:
+      - ./bill-payment/target:/opt/app
+    working_dir: /opt
+    environment:
+      - RABBITMQ_HOST=rabbitmq-wallet
+    command: bash -c "sleep 5 && java -jar -Dspring.profiles.active=prod /opt/app/bill-payment.jar"
+    ports:
+      - "8080"
+    depends_on:
+      - rabbitmq-wallet
+      - wallet-db
+    networks:
+      - wallet-db
+      - wallet-rabbit
+      - wallet
+
+  bill-payment-2:
+    image: openjdk:11-jre
+    container_name: bill-payment-2
+    hostname: bill-payment-2
+    restart: always
+    volumes:
+      - ./bill-payment/target:/opt/app
+    working_dir: /opt
+    environment:
+      - RABBITMQ_HOST=rabbitmq-wallet
+    command: bash -c "sleep 5 && java -jar -Dspring.profiles.active=prod /opt/app/bill-payment.jar"
+    ports:
+      - "8080"
+    depends_on:
+      - rabbitmq-wallet
+      - wallet-db
+    networks:
+      - wallet-db
+      - wallet-rabbit
+      - wallet
 
   wallet-timeline-2:
     image: openjdk:11-jre

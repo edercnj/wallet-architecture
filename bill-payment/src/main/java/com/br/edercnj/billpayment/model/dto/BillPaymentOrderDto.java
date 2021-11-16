@@ -6,7 +6,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class BillPaymentOderDto {
+public class BillPaymentOrderDto {
     @Id
     private String id;
     private BillPayment billPayment;
