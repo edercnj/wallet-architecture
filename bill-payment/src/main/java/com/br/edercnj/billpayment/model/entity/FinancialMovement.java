@@ -1,6 +1,7 @@
 package com.br.edercnj.billpayment.model.entity;
 
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -8,7 +9,6 @@ import java.util.UUID;
 
 @Data
 public class FinancialMovement {
-    private String id;
     private UUID movementIdentifier;
     private Date dateOfFinancialMovement;
     private FinancialMovementType financialMovementType;

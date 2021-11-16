@@ -19,7 +19,6 @@ public class BillPaymentOrder {
         this.orderStatus = orderStatus;
     }
 
-
     public BillPaymentOrder() {
     }
 }
