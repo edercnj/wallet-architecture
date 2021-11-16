@@ -14,10 +14,9 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
  ## O que é necessário para rodar esta demonstração:
       - Docker
       - Docker-compose
-      - Java para o build através do maven
-      - shell script (no caso de linx ou MacOS)
-      - cmd (No caso de Windows)
       - acesso a internet para que as imagens sejam baixadas do docker hub
+      - Java 11 (caso deseje rodar as aplicações localmente)
+      - bash ou cmd (para executar os comuandos)
       
 ## Como rodar esta demonstração
    - #### Na raiz do projeto constam dois arquivos:
@@ -26,7 +25,8 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
    - #### Como executar de acordo com o sistema operacional:
        - Linx: ./start.sh
        - MacOS:./start.sh
-       - Windows: Clicar duas vezes no arquivo start.sh caso seja windows com o wsl2 instalado.
+       - Windows: Caso possua uma versão recente de windows ou tenha o git bash instalado, basta clicar duas vezes no arquivo start.sh.
+              -  Caso o windows não consiga exeuctar, efetuar procedimentos para execução manual.
  
    - #### Como executar manualmente esta demonstração (Windows, Linux e MAC)
        1.    acessar a pasta bill-payment e executar o comando mvnw clean compile package
