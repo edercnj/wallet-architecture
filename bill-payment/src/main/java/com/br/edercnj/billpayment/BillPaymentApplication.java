@@ -2,8 +2,10 @@ package com.br.edercnj.billpayment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
 public class BillPaymentApplication {
 
     public static void main(String[] args) {

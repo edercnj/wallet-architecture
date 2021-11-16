@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  main:
+    banner-mode: off
+  config:
+    activate:
+      on-profile: 'test'
+  data:
+    mongodb:
+      uri: 'mongodb://localhost:27017/bill-payment'
+      auto-index-creation: true
+      database: wallet-timeline
+  rabbitmq:
+    host: rabbitmq-wallet
+    port: 5672
+
+amqp:
+  financialMovement:
+    exchange:
+      name: ex.financialMovement
+    queues:
+      wallet-timeline:
+        name: rk.wallettimeline
+        deadLetter: dlq.wallettimeline
