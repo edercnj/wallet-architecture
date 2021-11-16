@@ -34,10 +34,10 @@ public class WithdrawController {
         this.mapper = new ModelMapper();
     }
 
-    @ApiOperation(value = "deposit a certain amount in the user's wallet")
+    @ApiOperation(value = "Withdraw a certain amount in the user's wallet")
     @ApiResponses(value =
             {
-                    @ApiResponse(code = 200, message = "Withdraw made successfully", response = FinancialMovementDto.class),
+                    @ApiResponse(code = 201, message = "Withdraw made successfully", response = FinancialMovementDto.class),
                     @ApiResponse(code = 400, message = "Invalid request parameters or insufficient funds", response = ErrorResponseDto.class),
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
@@ -46,6 +46,6 @@ public class WithdrawController {
     public ResponseEntity<FinancialMovementDto> deposit(@RequestBody @Validated WithdrawDto withdrawDto) throws UserNotFoundException, InsufficientFundsException {
         FinancialMovement financialMovement = withdrawService.withdraw(mapper.map(withdrawDto, Withdraw.class));
         FinancialMovementDto response = mapper.map(financialMovement, FinancialMovementDto.class);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

@@ -1,4 +1,4 @@
-package com.br.edercnj.billpayment.configuration;
+package com.br.edercnj.wallettimeline.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,14 +30,14 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .useDefaultResponseMessages(false)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.br.edercnj.billpayment.web.api.v1"))
+                .apis(RequestHandlerSelectors.basePackage("com.br.edercnj.wallettimeline.web.api.v1"))
                 .build()
                 .apiInfo(API_INFO).directModelSubstitute(Temporal.class, String.class);
     }
 
     private static final ApiInfo API_INFO = new ApiInfo(
-            "BILL PAYMENT",
-            "Api for bill payments",
+            "WALLET-TIMELINE",
+            "Api to consult the operations carried out in the user's wallet.",
             "1.0",
             "Terms of Serice",
             new Contact("Eder", "https://github.com/edercnj", "edercnj@gmail.com"), "GNU General Public License 3",

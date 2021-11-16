@@ -35,7 +35,7 @@ public class BillPaymentController {
     @ApiOperation(value = "Bill payment made successfully")
     @ApiResponses(value =
             {
-                    @ApiResponse(code = 200, message = "Deposit made successfully", response = BillPaymentOrderDto.class),
+                    @ApiResponse(code = 201, message = "Successfully created invoice payment request", response = BillPaymentOrderDto.class),
                     @ApiResponse(code = 400, message = "Invalid request parameters", response = ErrorResponseDto.class),
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
@@ -43,6 +43,6 @@ public class BillPaymentController {
     public ResponseEntity<BillPaymentOrderDto> deposit(@RequestBody @Validated BillPaymentDto  billPaymentDto)  {
         BillPaymentOrder billPaymentOrder = billPaymentService.pay(modelMapper.map(billPaymentDto, BillPayment.class));
         BillPaymentOrderDto response = modelMapper.map(billPaymentOrder, BillPaymentOrderDto.class);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }

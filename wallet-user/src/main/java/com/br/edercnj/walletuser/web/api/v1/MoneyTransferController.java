@@ -45,6 +45,6 @@ public class MoneyTransferController {
     public ResponseEntity<FinancialMovementDto> moneyTransfer(@RequestBody @Validated MoneyTransferDto dto) throws UserNotFoundException, InsufficientFundsException {
         FinancialMovement financialMovement = moneyTransferService.moneyTransfer(mapper.map(dto, MoneyTransfer.class));
         FinancialMovementDto response = mapper.map(financialMovement, FinancialMovementDto.class);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }
