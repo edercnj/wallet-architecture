@@ -35,18 +35,19 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
        4.    voltar para o diretório raiz do projeto (onde consta este README) E executar o comando docker-compose up -d --remove-orphans
 
 ## Considerações importantes sobre performance
- > Esta demonstração utiliza ao todo 10 containers, o que para certas máquinas pode gerar lentidão ou o não correto funcionamento da aplicação.
+ > Esta demonstração utiliza ao todo 10 containers, o que para certas máquinas (com menos recursos) pode gerar lentidão ou o não correto funcionamento da demonstração.
  > * Nestes caso remova do arquivo docker-compose.yml os seguintes services:  wallet-timeline-2, bill-payment-2 e wallet-user-app-2.
- > * Também remova das configurações do nginx este servidores, remover no arquivos nginx.conf os seguintes servidores  server wallet-user-app-2:8080,  server wallet-timeline-2:8080 e server bill-payment-2:8080.
+ > * Também remova das configurações do nginx este servidores, remover no arquivos nginx.conf os seguintes servidores  wallet-user-app-2:8080,  wallet-timeline-2:8080 e bill-payment-2:8080.
  > 
   -  ## Considerações sobre este modelo de arquitetura::
 - Esta sendo utilizado o Nginx como load balancer e proxy reverso, desta formas as apis se portas das aplicações não serão expostas para fora.
-- O Nginx támbem expõe url difrentes que são direcionadas por ele para cada uma das aplicações.
+- O Nginx támbem expõe url difrentes que são direcionadas por ele para cada uma das aplicações, fornecendo URLs mais amigáveis.
 - Foram criados dois containers de cada uma das aplicações para a aplicação prática do load balancer do Nginx.
-- A constução das aplicações é efetudas através do docker-compose, onde são construídas todas as imagens.
+- A constução das aplicações é efetudas através do docker-compose, onde são construídas todas as imagens. Não é necessário nenhum arquivo de dockerfile
 - Foi criado apenas um container mongo db onde todas as aplicações tem sua base de dados. Isto foi efetuado para poupar recursos computacionais.
-- Foi o RabbitMQ para a troca de mensagens assíncronas entre os sistemas.
-- Foi desenvolvida uma aplicação separada para prover as consultas de timeline do usuiário. Esta decisão foi tomada para que as operações de consulta, que são mais custosas, não sejam efetudas na mesma aplicação ou base de dados.
+- Foi desenvolvida a aplicação wallet-timeline separada para prover as consultas de timeline do usuiário. Esta decisão foi tomada para que as operações de consulta, que são mais custosas, não sejam efetudas na mesma aplicação ou base de dados. Esta aplicação também utiliza cache no Redis, com expiração do cache cada vez que um evento de timeline para o mesmo usuário é adicionado.
+- Foi densevolvida a aplicação bill-payment para demonstrar a comunicação entre dois micro-serviços através de REST API.
+- O Envio de dados para a timeline -e efetuado através de comunicação assíncrona utilizando o RabbitMQ, onde os eventos de timeline são enviados para a exchange e são consumidos pela aplicação wallet-timeline.
 
 ## Sobre as aplicações e seu funcionamento:
 
