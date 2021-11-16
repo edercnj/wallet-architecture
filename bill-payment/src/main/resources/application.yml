@@ -41,5 +41,5 @@ feign:
         connection-timeout: 10000
         read-timeout: 10000
         loggerlevel: basic
-        base-url: "http://localhost:8000/api/v1/user"
+        base-url: "http://wallet-gateway/api/v1"
 

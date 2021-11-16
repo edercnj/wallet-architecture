@@ -42,7 +42,7 @@ public class WithdrawController {
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
 
-    @PostMapping(value = "/user/wallet/withdraw", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "/wallets/withdraws", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<FinancialMovementDto> deposit(@RequestBody @Validated WithdrawDto withdrawDto) throws UserNotFoundException, InsufficientFundsException {
         FinancialMovement financialMovement = withdrawService.withdraw(mapper.map(withdrawDto, Withdraw.class));
         FinancialMovementDto response = mapper.map(financialMovement, FinancialMovementDto.class);

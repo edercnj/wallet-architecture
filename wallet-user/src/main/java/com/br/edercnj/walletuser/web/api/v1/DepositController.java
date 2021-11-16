@@ -41,7 +41,7 @@ public class DepositController {
                     @ApiResponse(code = 400, message = "Invalid request parameters", response = ErrorResponseDto.class),
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
-    @PostMapping(value = "/user/wallet/deposit", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "wallets/deposits", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<FinancialMovementDto> deposit(@RequestBody @Validated DepositDto depositDto) throws UserNotFoundException {
         FinancialMovement financialMovement = depositService.deposit(modelMapper.map(depositDto, Deposit.class));
         FinancialMovementDto response = modelMapper.map(financialMovement, FinancialMovementDto.class);

@@ -41,8 +41,8 @@ public class MoneyTransferController {
                     @ApiResponse(code = 400, message = "Invalid request parameters", response = ErrorResponseDto.class),
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
-    @PostMapping(value = "/user/wallet/money-transfer", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<FinancialMovementDto> create(@RequestBody @Validated MoneyTransferDto dto) throws UserNotFoundException, InsufficientFundsException {
+    @PostMapping(value = "/wallets/money_transfers", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<FinancialMovementDto> moneyTransfer(@RequestBody @Validated MoneyTransferDto dto) throws UserNotFoundException, InsufficientFundsException {
         FinancialMovement financialMovement = moneyTransferService.moneyTransfer(mapper.map(dto, MoneyTransfer.class));
         FinancialMovementDto response = mapper.map(financialMovement, FinancialMovementDto.class);
         return ResponseEntity.status(HttpStatus.OK).body(response);

@@ -41,7 +41,7 @@ public class FinancialMovementController {
                     @ApiResponse(code = 400, message = "Invalid request parameters", response = ErrorResponseDto.class),
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
-    @GetMapping(value = "/timeline/financial-movements", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/timelines", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<FinancialMovementDto>> getAllFinancialMovements() {
         List<FinancialMovement> financialMovement = financialMovementService.findAll();
         List<FinancialMovementDto> financialMovements = mapper.map(financialMovement, new TypeToken<List<FinancialMovement>>() {}.getType());
@@ -57,7 +57,7 @@ public class FinancialMovementController {
                     @ApiResponse(code = 400, message = "Invalid request parameters", response = ErrorResponseDto.class),
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
-    @GetMapping(value = "/timeline/financial-movements/user/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/timelines/users/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<FinancialMovementDto>> getFinancialMovementsFromUser(@PathVariable(value = "id") String userId) {
         List<FinancialMovement> financialMovement = financialMovementService.findByUserId(userId);
         List<FinancialMovementDto> financialMovements = mapper.map(financialMovement, new TypeToken<List<FinancialMovement>>() {}.getType());

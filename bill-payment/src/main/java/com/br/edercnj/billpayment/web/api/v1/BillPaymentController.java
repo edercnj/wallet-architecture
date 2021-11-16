@@ -39,7 +39,7 @@ public class BillPaymentController {
                     @ApiResponse(code = 400, message = "Invalid request parameters", response = ErrorResponseDto.class),
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
-    @PostMapping(value = "/bill-payment/pay", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "/bill_payments", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<BillPaymentOrderDto> deposit(@RequestBody @Validated BillPaymentDto  billPaymentDto)  {
         BillPaymentOrder billPaymentOrder = billPaymentService.pay(modelMapper.map(billPaymentDto, BillPayment.class));
         BillPaymentOrderDto response = modelMapper.map(billPaymentOrder, BillPaymentOrderDto.class);
