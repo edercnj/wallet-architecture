@@ -19,8 +19,8 @@ Exemplo de arquitetura de uma wallet utilizado Spring boot, RabbitMQ, MongoDB, D
       - shell script (no caso de linx ou MacOS)
       - cmd (No caso de Windows)
       - acesso a internet para que as imagens sejam baixadas do docker hub
-  
-   ## Como rodar esta demonstração
+      
+## Como rodar esta demonstração
    - #### Na raiz do projeto constam dois arquivos:
         - start.sh
         - start.bat
