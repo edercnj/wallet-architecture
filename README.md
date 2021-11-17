@@ -41,6 +41,7 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
      - Efetuar testes de money_transfers(transferência);
      - Efetuar testes de bill_payments(pagamento de contas/faturas);
      - Efetuar testes de timelines (consultando através do id);
+     - As operações acima podem ser efetuadas através de Postman, curl ou a ferramenta de sua preferência.
 
 ## Considerações importantes sobre performance
  > Esta demonstração utiliza ao todo 10 containers, o que para certas máquinas (com menos recursos) pode gerar lentidão ou o não correto funcionamento da demonstração.
