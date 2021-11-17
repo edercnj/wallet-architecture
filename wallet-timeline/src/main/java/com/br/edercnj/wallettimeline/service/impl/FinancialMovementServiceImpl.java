@@ -30,9 +30,4 @@ public class FinancialMovementServiceImpl implements FinancialMovementService {
     public List<FinancialMovement> findByUserId(String userId) {
         return financialMovementRepository.findByUserId(userId);
     }
-
-    @Override
-    public List<FinancialMovement> findAll() {
-        return financialMovementRepository.findAll();
-    }
 }

@@ -9,6 +9,4 @@ public interface FinancialMovementService {
     void createFinancialMovement(FinancialMovement financialMovement);
 
     List<FinancialMovement> findByUserId(String userId);
-
-    List<FinancialMovement> findAll();
 }
