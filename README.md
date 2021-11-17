@@ -16,7 +16,7 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
       - Docker-compose
       - acesso a internet para que as imagens sejam baixadas do docker hub
       - Java 11 (caso deseje rodar as aplicações localmente)
-      - bash ou cmd (para executar os comuandos)
+      - bash ou cmd (para executar os comandos)
       
 ## Como rodar esta demonstração
    - #### Na raiz do projeto constam dois arquivos:
