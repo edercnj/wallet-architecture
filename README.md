@@ -34,22 +34,35 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
        3. acessar a pasta wallet-user e executar o comando mvnw clean compile package
        4. voltar para o diretório raiz do projeto (onde consta este README) E executar o comando docker-compose up -d --remove-orphans
    - #### Como efetuar testes
-     - Acessar as Apis que constam no final dest
+     - Acessar as Apis que constam no final deste readme.
+     - Através das Apis de user, criar dois usuários, que serão utilizados nos testes (importante anotar estes ids e usernames, pois serão usados em outros testes).
+     - Efetuar testes de deposit (depósito);
+     - Efetuar testes de withdraw(saque);
+     - Efetuar testes de money_transfers(transferência);
+     - Efetuar testes de bill_payments(pagamento de contas/faturas);
+     - Efetuar testes de timelines (consultando através do id);
 
 ## Considerações importantes sobre performance
  > Esta demonstração utiliza ao todo 10 containers, o que para certas máquinas (com menos recursos) pode gerar lentidão ou o não correto funcionamento da demonstração.
- > * Nestes caso remova do arquivo docker-compose.yml os seguintes services:  wallet-timeline-2, bill-payment-2 e wallet-user-app-2.
- > * Também remova das configurações do nginx este servidores, remover no arquivos nginx.conf os seguintes servidores  wallet-user-app-2:8080,  wallet-timeline-2:8080 e bill-payment-2:8080.
- > 
-  -  ## Considerações sobre este modelo de arquitetura:
-- Esta sendo utilizado o Nginx como load balancer e proxy reverso, desta formas as apis se portas das aplicações não serão expostas para fora.
-- O Nginx támbem expõe url difrentes que são direcionadas por ele para cada uma das aplicações, fornecendo URLs mais amigáveis.
+ > * Neste caso remova do arquivo docker-compose.yml os seguintes services:  
+ >      - wallet-timeline-2
+ >      - bill-payment-2 
+ >      - wallet-user-app-2
+ > * Também remova das configurações do nginx este servidores, remover no arquivos nginx.conf os seguintes servidores:
+ >      - wallet-user-app-2:8080
+ >      - wallet-timeline-2:8080
+ >      - bill-payment-2:8080
+  
+## Considerações sobre este modelo de arquitetura:
+- Esta sendo utilizado o Nginx como load balancer e proxy reverso, desta formas as apis  portas das aplicações serão todas expostas em uma única porta.
+- O Nginx támbem faz o redirect das URLS que serão direcionadas para cadas umas das aplicação, onde a compactação por gzip foi ativada, diminuindo o tamanho das requisições.
 - Foram criados dois containers de cada uma das aplicações para a aplicação prática do load balancer do Nginx.
 - A constução das aplicações é efetudas através do docker-compose, onde são construídas todas as imagens. Não é necessário nenhum arquivo de dockerfile
-- Foi criado apenas um container mongo db onde todas as aplicações tem sua base de dados. Isto foi efetuado para poupar recursos computacionais.
-- Foi desenvolvida a aplicação wallet-timeline separada para prover as consultas de timeline do usuiário. Esta decisão foi tomada para que as operações de consulta, que são mais custosas, não sejam efetudas na mesma aplicação ou base de dados. Esta aplicação também utiliza cache no Redis, com expiração do cache cada vez que um evento de timeline para o mesmo usuário é adicionado.
+- Foi criado apenas um container mongo db onde todas as aplicações tem sua base de dados. Isto foi efetuado para poupar recursos computacionais da demonstração.
+- Foi desenvolvida a aplicação wallet-timeline separada para prover as consultas de timeline do usuiário. Esta decisão foi tomada para que as operações de consulta, que são mais custosas, não sejam efetudas nas mesmas aplicações que executam movimentações financeiras.
+-  A aplicação wallet-timeline utiliza cache no Redis, para que sejam efetuadas menos consultas ao banco de dados e tenhamos menor processamento de memória e também tanhamos respostas mais rápidas.
 - Foi densevolvida a aplicação bill-payment para demonstrar a comunicação entre dois micro-serviços através de REST API.
-- O Envio de dados para a timeline -e efetuado através de comunicação assíncrona utilizando o RabbitMQ, onde os eventos de timeline são enviados para a exchange e são consumidos pela aplicação wallet-timeline.
+- O Envio de dados para a timeline é efetuado através de comunicação assíncrona utilizando o RabbitMQ, onde os eventos de timeline são enviados para a exchange e são consumidos pela aplicação wallet-timeline. São enviados para a timeline os eventos de depósito, saque, transferências e pagamentos de faturas.
 
 ## Sobre as aplicações e seu funcionamento:
 
@@ -67,7 +80,6 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
 - O objetivo desta aplicação é não sobrecarregar a api da carteira de usuário com operações de consulta, por este motivo ela consome os eventos que a aplicação wallet-user coloca na fila do RabbitMQ.
 - Para otimizar a performance nas consultas, a consulta de timeline está com cache configurado no Redis.
   
- 
 ### bill-pyament:
 - A aplicação bill-payment executa uma operação de pagamento de fatura, para isto ela consome a api de usuário para verificar se o usuário existe.
 - Não existe nenhuma regra de validaÇão ou envio para outro lugar desta aplicação, a mesma é apenas para demonstrar a comunicação através do feign client.
