@@ -25,8 +25,8 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
    - #### Como executar de acordo com o sistema operacional:
        - Linx: ./start.sh
        - MacOS:./start.sh
-       - Windows: Caso possua uma versão recente de windows ou tenha o git bash instalado, basta clicar duas vezes no arquivo start.sh.
-              -  Caso o windows não consiga exeuctar, efetuar procedimentos para execução manual.
+       - Windows: Caso possua uma versão recente de windows que reconheça sh basta clicar duas vezes no arquivo start.sh.
+       -  Caso o windows não consiga exeuctar, efetuar procedimentos para execução manual.
  
    - #### Como executar manualmente esta demonstração (Windows, Linux e MAC)
        1. acessar a pasta bill-payment e executar o comando mvnw clean compile package
