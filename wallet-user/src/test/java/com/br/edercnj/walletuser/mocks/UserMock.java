@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 public class UserMock {
 
     public static User createUser() {
-        return new User("falano@fulano.com.br", "Fulano", new BigDecimal(10));
+        User user = new User("falano@fulano.com.br", "Fulano", new BigDecimal(10));
+        user.setId("6194205940ddae1fa2d4388e");
+        return user;
     }
 }

@@ -35,6 +35,7 @@ public class UserController {
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
     @PostMapping(value = "/users", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<UserDto> create(@RequestBody @Validated UserDto dto) throws UserAlreadyRegisteredException {
         User user = userService.createUser(mapper.map(dto, User.class));
         return ResponseEntity.status(HttpStatus.CREATED).body(mapper.map(user,UserDto.class));
@@ -49,8 +50,9 @@ public class UserController {
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
     @GetMapping(value = "/users", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<UserDto> findUUserByUsername(@RequestParam String username) throws  UserNotFoundException {
         User user = userService.findUserByUsername(username);
-        return ResponseEntity.status(HttpStatus.CREATED).body(mapper.map(user,UserDto.class));
+        return ResponseEntity.status(HttpStatus.OK).body(mapper.map(user,UserDto.class));
     }
 }

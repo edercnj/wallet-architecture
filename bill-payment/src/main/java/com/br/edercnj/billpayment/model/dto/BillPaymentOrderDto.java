@@ -11,6 +11,6 @@ public class BillPaymentOrderDto {
     @Id
     private String id;
     private BillPayment billPayment;
-    private FinancialMovement financialMovement;
+    private FinancialMovementDto financialMovement;
     private OrderStatus orderStatus;
 }

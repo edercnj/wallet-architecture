@@ -14,10 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -40,6 +37,7 @@ public class BillPaymentController {
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
     @PostMapping(value = "/bill_payments", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<BillPaymentOrderDto> deposit(@RequestBody @Validated BillPaymentDto  billPaymentDto)  {
         BillPaymentOrder billPaymentOrder = billPaymentService.pay(modelMapper.map(billPaymentDto, BillPayment.class));
         BillPaymentOrderDto response = modelMapper.map(billPaymentOrder, BillPaymentOrderDto.class);

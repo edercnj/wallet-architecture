@@ -17,10 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -42,6 +39,7 @@ public class MoneyTransferController {
                     @ApiResponse(code = 500, message = "Internal server error", response = ErrorResponseDto.class)
             })
     @PostMapping(value = "/wallets/money_transfers", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<FinancialMovementDto> moneyTransfer(@RequestBody @Validated MoneyTransferDto dto) throws UserNotFoundException, InsufficientFundsException {
         FinancialMovement financialMovement = moneyTransferService.moneyTransfer(mapper.map(dto, MoneyTransfer.class));
         FinancialMovementDto response = mapper.map(financialMovement, FinancialMovementDto.class);

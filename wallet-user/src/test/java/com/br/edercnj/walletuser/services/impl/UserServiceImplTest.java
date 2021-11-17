@@ -3,6 +3,7 @@ package com.br.edercnj.walletuser.services.impl;
 import com.br.edercnj.walletuser.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.exception.UserAlreadyRegisteredException;
 import com.br.edercnj.walletuser.exception.UserNotFoundException;
+import com.br.edercnj.walletuser.mocks.UserMock;
 import com.br.edercnj.walletuser.model.entities.User;
 import com.br.edercnj.walletuser.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
@@ -80,5 +81,12 @@ class UserServiceImplTest {
         when(userRepository.findByUsername(anyString())).thenReturn(Optional.empty());
         userService.createUser(user);
         verify(userRepository, times(1)).save(any(User.class));
+    }
+
+    @Test
+    void createUser_should_be_call_userRepository_should_be_throw() {
+        when(userRepository.findByUsername(anyString())).thenReturn(Optional.of(UserMock.createUser()));
+        Assertions.assertThrows( UserAlreadyRegisteredException.class, ()  -> userService.createUser(user));
+
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 @Slf4j
-public class ExceptionControllerAdivice {
+public class ExceptionControllerAdvice {
 
     @ExceptionHandler
     public ResponseEntity<ErrorResponseDto> genericException(Exception e) {
@@ -20,7 +20,7 @@ public class ExceptionControllerAdivice {
         ErrorResponseDto response = ErrorResponseDto
                 .builder()
                 .httpStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-                .userMessage("Unknown errorl")
+                .userMessage("Unknown error")
                 .developerMessage(e.getMessage())
                 .build();
 

@@ -33,6 +33,8 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
        2. acessar a pasta wallet-timeline e executar o comando mvnw clean compile package
        3. acessar a pasta wallet-user e executar o comando mvnw clean compile package
        4. voltar para o diretório raiz do projeto (onde consta este README) E executar o comando docker-compose up -d --remove-orphans
+   - #### Como efetuar testes
+     - Acessar as Apis que constam no final dest
 
 ## Considerações importantes sobre performance
  > Esta demonstração utiliza ao todo 10 containers, o que para certas máquinas (com menos recursos) pode gerar lentidão ou o não correto funcionamento da demonstração.
@@ -81,4 +83,4 @@ Após executar a demonstração as documentações estarão disponíveis via Swa
 ### Api da aplicação bill-payment
 * http://localhost:8083/swagger-ui/index.html
 # TOPOLOGIA:
-![Topologia](https://github.com/edercnj/wallet-architecture/blob/master/topologia-wallet.svg)
+![Topologia](https://github.com/edercnj/wallet-architecture/blob/master/documents/topologia-wallet.svg)
