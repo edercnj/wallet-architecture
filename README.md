@@ -65,7 +65,7 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
 - Foi densevolvida a aplicação bill-payment para demonstrar a comunicação entre dois micro-serviços através de REST API.
 - O Envio de dados para a timeline é efetuado através de comunicação assíncrona utilizando o RabbitMQ, onde os eventos de timeline são enviados para a exchange e são consumidos pela aplicação wallet-timeline. São enviados para a timeline os eventos de depósito, saque, transferências e pagamentos de faturas.
 - No projeto waller-user foi executado um teste de integração com o RabbitMQ, utilizado TestContainer.
-- 
+- Para fins de demonstração, os testes unitários foram implementados no projeto wallet-user.
 
 ## Sobre as aplicações e seu funcionamento:
 
