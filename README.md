@@ -97,5 +97,5 @@ Após executar a demonstração as documentações estarão disponíveis via Swa
 
 ### Api da aplicação bill-payment
 * http://localhost:8083/swagger-ui/index.html
-# TOPOLOGIA:
+## ARQUITETURA DA SOLUÇÃO:
 ![Topologia](https://github.com/edercnj/wallet-architecture/blob/master/documents/topologia-wallet.svg)
