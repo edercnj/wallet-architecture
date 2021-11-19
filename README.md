@@ -34,6 +34,7 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
        3. acessar a pasta wallet-user e executar o comando mvnw clean compile package
        4. voltar para o diretório raiz do projeto (onde consta este README) E executar o comando docker-compose up -d --remove-orphans
    - #### Como efetuar testes
+     - A a porta disponível para testes é a porta 8000 através do Nginx, desta forma, as apis utilizda devem ser apontadas para localhost:8000 e os endereços das Apis.
      - Acessar as Apis que constam no final deste readme.
      - Através das Apis de user, criar dois usuários, que serão utilizados nos testes (importante anotar estes ids e usernames, pois serão usados em outros testes).
      - Efetuar testes de deposit (depósito);
@@ -67,6 +68,7 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
 - O Envio de dados para a timeline é efetuado através de comunicação assíncrona utilizando o RabbitMQ, onde os eventos de timeline são enviados para a exchange e são consumidos pela aplicação wallet-timeline. São enviados para a timeline os eventos de depósito, saque, transferências e pagamentos de faturas.
 - No projeto waller-user foi executado um teste de integração com o RabbitMQ, utilizado TestContainer.
 - Para fins de demonstração, os testes unitários foram implementados no projeto wallet-user.
+- A aplicação wallet-user utiliza o modelo de arquitetura hexagonal.
 
 ## Sobre as aplicações e seu funcionamento:
 
