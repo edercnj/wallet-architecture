@@ -1,6 +1,6 @@
 package com.br.edercnj.walletuser.mocks;
 
-import com.br.edercnj.walletuser.model.entities.User;
+import com.br.edercnj.walletuser.application.domain.entities.User;
 
 import java.math.BigDecimal;
 

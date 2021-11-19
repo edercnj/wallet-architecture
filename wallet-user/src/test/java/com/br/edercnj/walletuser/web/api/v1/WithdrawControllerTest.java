@@ -1,14 +1,12 @@
 package com.br.edercnj.walletuser.web.api.v1;
 
-import com.br.edercnj.walletuser.exception.InsufficientFundsException;
-import com.br.edercnj.walletuser.exception.UserNotFoundException;
-import com.br.edercnj.walletuser.mocks.DepositDtoMock;
+import com.br.edercnj.walletuser.adapters.inbound.web.api.v1.WithdrawController;
+import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
+import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;
 import com.br.edercnj.walletuser.mocks.FinancialMovementMock;
-import com.br.edercnj.walletuser.mocks.UserMock;
 import com.br.edercnj.walletuser.mocks.WithdrawMock;
-import com.br.edercnj.walletuser.model.entities.User;
-import com.br.edercnj.walletuser.model.entities.Withdraw;
-import com.br.edercnj.walletuser.services.WithdrawService;
+import com.br.edercnj.walletuser.application.domain.entities.Withdraw;
+import com.br.edercnj.walletuser.application.services.WithdrawService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,9 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ActiveProfiles("test")

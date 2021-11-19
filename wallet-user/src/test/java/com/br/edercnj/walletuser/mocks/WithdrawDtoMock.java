@@ -1,7 +1,6 @@
 package com.br.edercnj.walletuser.mocks;
 
-import com.br.edercnj.walletuser.model.dto.WithdrawDto;
-import com.br.edercnj.walletuser.model.entities.Withdraw;
+import com.br.edercnj.walletuser.adapters.dto.WithdrawDto;
 
 public class WithdrawDtoMock {
 

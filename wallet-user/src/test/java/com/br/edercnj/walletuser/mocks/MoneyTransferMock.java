@@ -1,6 +1,6 @@
 package com.br.edercnj.walletuser.mocks;
 
-import com.br.edercnj.walletuser.model.entities.MoneyTransfer;
+import com.br.edercnj.walletuser.application.domain.entities.MoneyTransfer;
 
 public class MoneyTransferMock {
 

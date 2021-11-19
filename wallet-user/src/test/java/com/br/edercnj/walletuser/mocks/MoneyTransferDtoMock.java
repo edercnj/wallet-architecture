@@ -1,6 +1,6 @@
 package com.br.edercnj.walletuser.mocks;
 
-import com.br.edercnj.walletuser.model.dto.MoneyTransferDto;
+import com.br.edercnj.walletuser.adapters.dto.MoneyTransferDto;
 
 public class MoneyTransferDtoMock {
 

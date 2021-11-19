@@ -1,11 +1,11 @@
 package com.br.edercnj.walletuser.services.impl;
 
-import com.br.edercnj.walletuser.exception.InsufficientFundsException;
-import com.br.edercnj.walletuser.exception.UserNotFoundException;
+import com.br.edercnj.walletuser.application.domain.entities.*;
+import com.br.edercnj.walletuser.application.services.*;
+import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
+import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;
 import com.br.edercnj.walletuser.mocks.FinancialMovementMock;
 import com.br.edercnj.walletuser.mocks.UserMock;
-import com.br.edercnj.walletuser.model.entities.*;
-import com.br.edercnj.walletuser.services.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

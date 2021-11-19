@@ -1,11 +1,12 @@
 package com.br.edercnj.walletuser.web.api.v1;
 
-import com.br.edercnj.walletuser.exception.UserAlreadyRegisteredException;
-import com.br.edercnj.walletuser.exception.UserNotFoundException;
+import com.br.edercnj.walletuser.adapters.inbound.web.api.v1.UserController;
+import com.br.edercnj.walletuser.application.domain.exception.UserAlreadyRegisteredException;
+import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;
 import com.br.edercnj.walletuser.mocks.UserDtoMock;
 import com.br.edercnj.walletuser.mocks.UserMock;
-import com.br.edercnj.walletuser.model.entities.User;
-import com.br.edercnj.walletuser.services.UserService;
+import com.br.edercnj.walletuser.application.domain.entities.User;
+import com.br.edercnj.walletuser.application.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

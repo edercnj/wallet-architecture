@@ -1,7 +1,7 @@
 package com.br.edercnj.walletuser.mocks;
 
-import com.br.edercnj.walletuser.model.dto.UserDto;
-import com.br.edercnj.walletuser.model.dto.WalletDto;
+import com.br.edercnj.walletuser.adapters.dto.UserDto;
+import com.br.edercnj.walletuser.adapters.dto.WalletDto;
 
 public class UserDtoMock {
 

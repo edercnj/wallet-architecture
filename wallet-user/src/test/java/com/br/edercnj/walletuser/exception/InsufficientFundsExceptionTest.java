@@ -1,5 +1,6 @@
 package com.br.edercnj.walletuser.exception;
 
+import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,16 +1,16 @@
 package com.br.edercnj.walletuser.services.impl;
 
-import com.br.edercnj.walletuser.exception.InsufficientFundsException;
-import com.br.edercnj.walletuser.exception.UserNotFoundException;
+import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
+import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;
 import com.br.edercnj.walletuser.mocks.FinancialMovementMock;
 import com.br.edercnj.walletuser.mocks.UserMock;
-import com.br.edercnj.walletuser.model.entities.FinancialMovement;
-import com.br.edercnj.walletuser.model.entities.User;
-import com.br.edercnj.walletuser.model.entities.Withdraw;
-import com.br.edercnj.walletuser.services.AmqpService;
-import com.br.edercnj.walletuser.services.FinancialMovementService;
-import com.br.edercnj.walletuser.services.UserService;
-import com.br.edercnj.walletuser.services.WithdrawService;
+import com.br.edercnj.walletuser.application.domain.entities.FinancialMovement;
+import com.br.edercnj.walletuser.application.domain.entities.User;
+import com.br.edercnj.walletuser.application.domain.entities.Withdraw;
+import com.br.edercnj.walletuser.application.services.AmqpService;
+import com.br.edercnj.walletuser.application.services.FinancialMovementService;
+import com.br.edercnj.walletuser.application.services.UserService;
+import com.br.edercnj.walletuser.application.services.WithdrawService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

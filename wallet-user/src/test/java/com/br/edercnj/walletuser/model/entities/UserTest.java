@@ -1,6 +1,7 @@
 package com.br.edercnj.walletuser.model.entities;
 
-import com.br.edercnj.walletuser.exception.InsufficientFundsException;
+import com.br.edercnj.walletuser.application.domain.entities.User;
+import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -2,7 +2,7 @@ package com.br.edercnj.walletuser.integration;
 
 
 import com.br.edercnj.walletuser.mocks.FinancialMovementMock;
-import com.br.edercnj.walletuser.services.AmqpService;
+import com.br.edercnj.walletuser.application.services.AmqpService;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.junit.ClassRule;

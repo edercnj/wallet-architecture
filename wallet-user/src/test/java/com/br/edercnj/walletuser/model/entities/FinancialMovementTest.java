@@ -1,5 +1,8 @@
 package com.br.edercnj.walletuser.model.entities;
 
+import com.br.edercnj.walletuser.application.domain.entities.FinancialMovement;
+import com.br.edercnj.walletuser.application.domain.entities.enums.FinancialMovementType;
+import com.br.edercnj.walletuser.application.domain.entities.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

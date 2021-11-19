@@ -198,3 +198,5 @@ services:
       - wallet-user-app-2
       - wallet-timeline-1
       - wallet-timeline-2
+      - bill-payment-1
+      - bill-payment-2

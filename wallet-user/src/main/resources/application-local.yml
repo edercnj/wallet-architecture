@@ -7,11 +7,11 @@ spring:
       name: waller-user
   config:
     activate:
-      on-profile: 'prod'
+      on-profile: 'local'
   data:
     mongodb:
       auto-index-creation: true
-      uri: mongodb://wallet-db:27017/wallet-user?authSource=admin
+      uri: mongodb://127.0.0.1:27017/wallet-user?authSource=admin
       authentication-database: admin
   rabbitmq:
     username: rabbitmq

@@ -1,9 +1,9 @@
 package com.br.edercnj.walletuser.services.impl;
 
-import com.br.edercnj.walletuser.model.entities.FinancialMovement;
-import com.br.edercnj.walletuser.model.entities.FinancialMovementType;
-import com.br.edercnj.walletuser.repository.FinancialMovementRepository;
-import com.br.edercnj.walletuser.services.FinancialMovementService;
+import com.br.edercnj.walletuser.application.domain.entities.FinancialMovement;
+import com.br.edercnj.walletuser.application.domain.entities.enums.FinancialMovementType;
+import com.br.edercnj.walletuser.adapters.outbound.persistence.mongo.FinancialMovementSpringDataMongoRepository;
+import com.br.edercnj.walletuser.application.services.FinancialMovementService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
 class FinancialMovementServiceImplTest {
 
     @MockBean
-    private FinancialMovementRepository financialMovementRepository;
+    private FinancialMovementSpringDataMongoRepository financialMovementSpringDataMongoRepository;
 
     @Autowired
     private FinancialMovementService financialMovementService;
@@ -35,20 +35,20 @@ class FinancialMovementServiceImplTest {
     @BeforeEach
     void setUp() {
         financialMovementMock = new FinancialMovement(FinancialMovementType.DEPOSIT, "123456", new BigDecimal(500));
-        when(financialMovementRepository.save(any(FinancialMovement.class))).thenReturn(financialMovementMock);
-        when(financialMovementRepository.findAll()).thenReturn(new ArrayList<>());
+        when(financialMovementSpringDataMongoRepository.save(any(FinancialMovement.class))).thenReturn(financialMovementMock);
+        when(financialMovementSpringDataMongoRepository.findAll()).thenReturn(new ArrayList<>());
     }
 
     @Test
     void createFinancialMovement_should_be_invoke_financialMovementRepository_save() {
         financialMovementService.createFinancialMovement(new FinancialMovement());
-        verify(financialMovementRepository, times(1)).save(any(FinancialMovement.class));
+        verify(financialMovementSpringDataMongoRepository, times(1)).save(any(FinancialMovement.class));
     }
 
     @Test
     void findAll_should_be_invoke_financialMovementRepository_save() {
         financialMovementService.findAll();
-        verify(financialMovementRepository, times(1)).findAll();
+        verify(financialMovementSpringDataMongoRepository, times(1)).findAll();
     }
 
     @Test

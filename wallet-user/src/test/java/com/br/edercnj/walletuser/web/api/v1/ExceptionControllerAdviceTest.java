@@ -1,9 +1,10 @@
 package com.br.edercnj.walletuser.web.api.v1;
 
-import com.br.edercnj.walletuser.exception.InsufficientFundsException;
-import com.br.edercnj.walletuser.exception.UserAlreadyRegisteredException;
-import com.br.edercnj.walletuser.exception.UserNotFoundException;
-import com.br.edercnj.walletuser.model.dto.ErrorResponseDto;
+import com.br.edercnj.walletuser.adapters.inbound.web.api.v1.ExceptionControllerAdvice;
+import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
+import com.br.edercnj.walletuser.application.domain.exception.UserAlreadyRegisteredException;
+import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;
+import com.br.edercnj.walletuser.adapters.dto.ErrorResponseDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

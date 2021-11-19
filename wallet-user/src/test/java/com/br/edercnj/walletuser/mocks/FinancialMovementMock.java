@@ -1,7 +1,7 @@
 package com.br.edercnj.walletuser.mocks;
 
-import com.br.edercnj.walletuser.model.entities.FinancialMovement;
-import com.br.edercnj.walletuser.model.entities.FinancialMovementType;
+import com.br.edercnj.walletuser.application.domain.entities.FinancialMovement;
+import com.br.edercnj.walletuser.application.domain.entities.enums.FinancialMovementType;
 
 import java.math.BigDecimal;
 

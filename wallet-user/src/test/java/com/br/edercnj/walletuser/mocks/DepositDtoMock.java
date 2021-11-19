@@ -1,6 +1,6 @@
 package com.br.edercnj.walletuser.mocks;
 
-import com.br.edercnj.walletuser.model.dto.DepositDto;
+import com.br.edercnj.walletuser.adapters.dto.DepositDto;
 
 public class DepositDtoMock {
 
