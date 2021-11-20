@@ -60,7 +60,7 @@ class UserServiceImplTest {
 
     @Test
     void findUserById_should_be_call_userRepository_findByUsername() throws UserNotFoundException {
-        userService.findUserById(anyString());
+        User user = userService.findUserById(anyString());
         verify(userSpringDataMongoRepository, times(1)).findUserById(anyString());
     }
 

@@ -2,6 +2,7 @@ package com.br.edercnj.walletuser.application.services.impl;
 
 import com.br.edercnj.walletuser.application.domain.entities.*;
 import com.br.edercnj.walletuser.application.domain.entities.enums.FinancialMovementType;
+import com.br.edercnj.walletuser.application.services.UserService;
 import com.br.edercnj.walletuser.application.services.*;
 import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;
