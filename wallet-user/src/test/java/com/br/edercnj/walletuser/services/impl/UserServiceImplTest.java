@@ -2,7 +2,7 @@ package com.br.edercnj.walletuser.services.impl;
 
 import com.br.edercnj.walletuser.application.domain.entities.User;
 import com.br.edercnj.walletuser.application.ports.outbound.UserRepositoryPort;
-import com.br.edercnj.walletuser.application.services.impl.UserServiceImpl;
+import com.br.edercnj.walletuser.application.domain.service.UserServiceImpl;
 import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.application.domain.exception.UserAlreadyRegisteredException;
 import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;

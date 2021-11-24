@@ -11,8 +11,6 @@ public class AmqpServiceImpl implements AmqpService {
     private final FinancialMovementAmqpPort financialMovementAmqpPort;
 
     public AmqpServiceImpl(FinancialMovementAmqpPort financialMovementAmqpPort) {this.financialMovementAmqpPort = financialMovementAmqpPort;}
-
-
     @Override
     public void sendFinancialMovementToConsumers(FinancialMovement financialMovement) {
         financialMovementAmqpPort.producer(financialMovement);

@@ -1,11 +1,10 @@
-package com.br.edercnj.walletuser.application.services.impl;
+package com.br.edercnj.walletuser.application.domain.service;
 
 import com.br.edercnj.walletuser.application.ports.outbound.UserRepositoryPort;
 import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.application.domain.exception.UserAlreadyRegisteredException;
 import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;
 import com.br.edercnj.walletuser.application.domain.entities.User;
-import com.br.edercnj.walletuser.application.services.UserService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

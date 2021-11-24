@@ -6,7 +6,7 @@ import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundExcept
 import com.br.edercnj.walletuser.mocks.UserDtoMock;
 import com.br.edercnj.walletuser.mocks.UserMock;
 import com.br.edercnj.walletuser.application.domain.entities.User;
-import com.br.edercnj.walletuser.application.services.UserService;
+import com.br.edercnj.walletuser.application.domain.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

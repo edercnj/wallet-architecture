@@ -1,7 +1,7 @@
 package com.br.edercnj.walletuser.services.impl;
 
 import com.br.edercnj.walletuser.application.domain.entities.*;
-import com.br.edercnj.walletuser.application.services.UserService;
+import com.br.edercnj.walletuser.application.domain.service.UserService;
 import com.br.edercnj.walletuser.application.services.*;
 import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.application.domain.exception.UserNotFoundException;

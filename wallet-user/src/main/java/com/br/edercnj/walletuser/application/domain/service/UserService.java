@@ -1,4 +1,4 @@
-package com.br.edercnj.walletuser.application.services;
+package com.br.edercnj.walletuser.application.domain.service;
 
 import com.br.edercnj.walletuser.application.domain.exception.InsufficientFundsException;
 import com.br.edercnj.walletuser.application.domain.exception.UserAlreadyRegisteredException;

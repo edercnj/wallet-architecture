@@ -9,7 +9,7 @@ import com.br.edercnj.walletuser.application.domain.entities.User;
 import com.br.edercnj.walletuser.application.services.AmqpService;
 import com.br.edercnj.walletuser.application.services.DepositService;
 import com.br.edercnj.walletuser.application.services.FinancialMovementService;
-import com.br.edercnj.walletuser.application.services.UserService;
+import com.br.edercnj.walletuser.application.domain.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

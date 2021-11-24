@@ -23,7 +23,7 @@ Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, M
         - start.sh
         - start.bat
    - #### Como executar de acordo com o sistema operacional:
-       - Linx: ./start.sh
+       - Linux: ./start.sh
        - MacOS:./start.sh
        - Windows: Caso possua uma versão recente de windows que reconheça sh basta clicar duas vezes no arquivo start.sh.
        -  Caso o windows não consiga exeuctar, efetuar procedimentos para execução manual.

@@ -8,7 +8,7 @@ import com.br.edercnj.walletuser.application.domain.entities.User;
 import com.br.edercnj.walletuser.application.domain.entities.Withdraw;
 import com.br.edercnj.walletuser.application.services.AmqpService;
 import com.br.edercnj.walletuser.application.services.FinancialMovementService;
-import com.br.edercnj.walletuser.application.services.UserService;
+import com.br.edercnj.walletuser.application.domain.service.UserService;
 import com.br.edercnj.walletuser.application.services.WithdrawService;
 import org.springframework.stereotype.Service;
 
