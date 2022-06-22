@@ -52,16 +52,12 @@ services:
     - redis-wallet
 
   wallet-user-app-1:
-    image: openjdk:11-jre
+    image: wallet-user:1.0.0
     container_name: wallet-user-app-1
     hostname: wallet-user-app-1
     restart: always
-    volumes:
-      - ./wallet-user/target:/opt/app
-    working_dir: /opt
     environment:
       - RABBITMQ_HOST=rabbitmq-wallet
-    command: bash -c "sleep 5 && java -jar -Dspring.profiles.active=prod /opt/app/app.jar"
     ports:
       - "8081:8080"
     depends_on:
@@ -73,16 +69,12 @@ services:
       - wallet
 
   wallet-user-app-2:
-    image: openjdk:11-jre
+    image: wallet-user:1.0.0
     container_name: wallet-user-app-2
     hostname: wallet-user-app-2
     restart: always
-    volumes:
-      - ./wallet-user/target:/opt/app
-    working_dir: /opt
     environment:
       - RABBITMQ_HOST=rabbitmq-wallet
-    command: bash -c "sleep 5 && java -jar -Dspring.profiles.active=prod /opt/app/app.jar"
     ports:
       - "8080"
     depends_on:
@@ -94,16 +86,12 @@ services:
       - wallet
 
   wallet-timeline-1:
-    image: openjdk:11-jre
+    image:  wallet-timeline:1.0.0
     container_name: wallet-timeline-1
     hostname: wallet-timeline-1
     restart: always
-    volumes:
-      - ./wallet-timeline/target:/opt/app
-    working_dir: /opt
     environment:
       - RABBITMQ_HOST=rabbitmq-wallet
-    command: bash -c "sleep 7 && java -jar -Dspring.profiles.active=prod /opt/app/app.jar"
     ports:
       - "8082:8080"
     depends_on:
@@ -117,16 +105,12 @@ services:
       - redis-wallet
 
   wallet-timeline-2:
-    image: openjdk:11-jre
+    image: wallet-timeline:1.0.0
     container_name: wallet-timeline-2
     hostname: wallet-timeline-2
     restart: always
-    volumes:
-      - ./wallet-timeline/target:/opt/app
-    working_dir: /opt
     environment:
       - RABBITMQ_HOST=rabbitmq-wallet
-    command: bash -c "sleep 7 && java -jar -Dspring.profiles.active=prod /opt/app/app.jar"
     ports:
       - "8080"
     depends_on:
@@ -140,16 +124,12 @@ services:
       - redis-wallet
 
   bill-payment-1:
-    image: openjdk:11-jre
+    image: bill-payment:1.0.0
     container_name: bill-payment-1
     hostname: bill-payment-1
     restart: always
-    volumes:
-      - ./bill-payment/target:/opt/app
-    working_dir: /opt
     environment:
       - RABBITMQ_HOST=rabbitmq-wallet
-    command: bash -c "sleep 5 && java -jar -Dspring.profiles.active=prod /opt/app/app.jar"
     ports:
       - "8083:8080"
     depends_on:
@@ -161,16 +141,12 @@ services:
       - wallet
 
   bill-payment-2:
-    image: openjdk:11-jre
+    image: bill-payment:1.0.0
     container_name: bill-payment-2
     hostname: bill-payment-2
     restart: always
-    volumes:
-      - ./bill-payment/target:/opt/app
-    working_dir: /opt
     environment:
       - RABBITMQ_HOST=rabbitmq-wallet
-    command: bash -c "sleep 5 && java -jar -Dspring.profiles.active=prod /opt/app/app.jar"
     ports:
       - "8080"
     depends_on:
