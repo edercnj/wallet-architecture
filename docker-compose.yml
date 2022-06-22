@@ -198,3 +198,18 @@ services:
       - wallet-user-app-2
       - wallet-timeline-1
       - wallet-timeline-2
+  zookeeper:
+    image: bitnami/zookeeper
+    container_name: wallet-gateway
+    hostname: zookeeper
+    restart: always
+    ports:
+      - 2181:2181
+      - 2888:2888
+    environment: 
+      - TZ=America/Sao Paulo
+      - ALLOW_ANONYMUS_LOGIN=yes
+    networks:
+      - localhost-network
+      - wallet      
+

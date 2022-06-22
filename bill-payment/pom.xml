@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.br.edercnj</groupId>
-    <artifactId>bill-payment</artifactId>
+    <artifactId>app</artifactId>
     <version>1.0.0</version>
     <name>bill-payment</name>
     <description>bill-payment</description>

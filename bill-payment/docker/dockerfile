@@ -1,0 +1,10 @@
+FROM openjdk:11-jre
+LABEL maintainer 'Eder Celeste Nunes Jr <edercnj@gmail.com>'
+LABEL version '1.0.0'
+WORKDIR  /app
+ARG JAR_FILE=./target/app.jar
+ENV RABBITMQ_HOST=rabbitmq-wallet
+COPY  ${JAR_FILE} /app/app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar", "app.jar"]
+CMD ["-D", "spring.profiles.active=prod"]

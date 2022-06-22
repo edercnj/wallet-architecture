@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.br.edercnj</groupId>
-    <artifactId>wallet-user</artifactId>
+    <artifactId>app</artifactId>
     <version>1.0.0</version>
     <name>wallet-user</name>
     <description>wallet-user</description>
