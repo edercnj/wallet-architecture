@@ -259,3 +259,5 @@ gradle-app.setting
 !.vscode/*.code-snippets
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+
+istio-1.14.1/
