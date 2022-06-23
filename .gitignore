@@ -260,4 +260,5 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
 
+# End Ignorando instalacao do istio
 istio-1.14.1/
