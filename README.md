@@ -1,4 +1,4 @@
-# wallet-architecture
+## wallet-architecture
 
 Exemplo de arquitetura de uma wallet utilizado Java com Spring boot, RabbitMQ, MongoDB, Docker, Redis e Nginx.
 
