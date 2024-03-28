@@ -15,7 +15,7 @@
     <name>wallet-user</name>
     <description>wallet-user</description>
     <properties>
-        <spring-clound-stream-version>3.1.5</spring-clound-stream-version>
+        <spring-clound-stream-version>4.1.1</spring-clound-stream-version>
         <java.version>11</java.version>
         <springfox-boot-version>3.0.0</springfox-boot-version>
         <org.projectlombok-version>1.18.22</org.projectlombok-version>
