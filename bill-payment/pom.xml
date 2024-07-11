@@ -15,7 +15,7 @@
     <name>bill-payment</name>
     <description>bill-payment</description>
     <properties>
-        <spring-clound-stream-version>3.1.5</spring-clound-stream-version>
+        <spring-clound-stream-version>4.1.3</spring-clound-stream-version>
         <java.version>11</java.version>
         <springfox-boot-version>3.0.0</springfox-boot-version>
         <org.projectlombok-version>1.18.22</org.projectlombok-version>
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>3.0.5</version>
+            <version>4.1.3</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
