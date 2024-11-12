@@ -100,3 +100,5 @@ Após executar a demonstração as documentações estarão disponíveis via Swa
 * http://localhost:8083/swagger-ui/index.html
 ## ARQUITETURA DA SOLUÇÃO:
 ![Arquitetura](https://github.com/edercnj/wallet-architecture/blob/master/documents/arquitetura.svg)
+
+
